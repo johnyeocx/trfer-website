@@ -1,0 +1,56 @@
+@import '../config';
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    padding: 0px 20px;
+    @include flexCenter(row);
+}
+
+.tabContainer {
+    @include flexCenter(row);
+    transition: 0.1s;
+    width: 40px;
+    border-radius: 20px;
+
+    .tabText {
+        width: 0px;
+        overflow: hidden;
+    }       
+
+    margin: 0px 25px;
+}
+
+.tabSelected {
+    background-color: black;
+    padding: 8px 12px 8px 15px; 
+    
+    border-radius: 20px;
+    width: 110px;
+    transition: 0.3s;
+    
+    .tabText {
+        width: fit-content;
+        font-size: $para5Half;
+        margin-left: 12px;
+        color: white;
+    }
+
+    .icon {
+        color: white;
+        font-size: 15px;
+    }
+}
+
+// card
+.cardIcon {
+    font-size: 18px;
+}
+
+.exploreIcon {
+    font-size: 18px;
+}
+
+.homeIcon {
+    font-size: 18px;
+}

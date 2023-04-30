@@ -1,0 +1,45 @@
+
+$primary-font: "CircularStd";
+
+$breakpoint-mobile: 510px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 950px;
+$breakpoint-desktop: 1025px;
+$breakpoint-thin: 380px;
+
+// FONT SIZES
+$header1: 2.5rem;
+$header2: 2.3rem;
+$header3: 2.1rem;
+$header4: 1.9rem;
+$header5: 1.7rem;
+
+$para1: 1.5rem;
+$para2: 1.3rem;
+$para3Half: 1.2rem;
+$para3: 1.1rem;
+$para4Half: 1rem;
+$para4: 0.9rem;
+$para5Half: 0.8rem;
+$para5: 0.7rem;
+
+
+
+$navHeight: 70px;
+$placeholderColor: #888;
+$horizontalPadding: 30px;
+
+
+// COLORS
+$errColor: #ff6767;
+$text2Color: #444444;
+$text3Color: #888888;
+$bgColor: rgb(250, 250, 250);
+
+
+@mixin flexCenter($flexDirection) {
+    display: flex;
+    flex-direction: $flexDirection;
+    align-items: center;
+    justify-content: center;
+}

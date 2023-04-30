@@ -1,0 +1,15 @@
+@import '../config';
+
+.homeContainer {
+    min-height: 100vh;
+    background-color: $bgColor;
+}
+
+.notLoggedInContainer {
+    width: 100vw;
+    height: calc(100vh - $navHeight);
+    @include flexCenter(row);
+    font-size: $para3;
+    text-align: center;
+    color: $text3Color;
+}

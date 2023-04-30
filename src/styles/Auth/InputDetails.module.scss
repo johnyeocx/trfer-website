@@ -1,0 +1,61 @@
+@import '../config';
+
+
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    // height: 100vh;
+    min-height: 500px;
+
+    @media (max-width: $breakpoint-tablet) {
+        min-height: none;
+        // background-color: $bgColor;
+    }
+}
+
+
+.mainContainer {
+    height: 90vh;
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
+    min-height: 500px;
+    @include flexCenter(column);
+    align-items: flex-start;
+    padding: 20px $horizontalPadding;
+    border-radius: 20px;
+
+    @media (max-width: $breakpoint-tablet) {
+        border-radius: 0px;
+        max-height: none;
+    }
+}
+
+.profileImgRow {
+    width: 100%;
+    @include flexCenter(column);
+}
+
+$imgHeight: 100px;
+.imgContainer {
+    width: $imgHeight;
+    height: $imgHeight;
+    border-radius: $imgHeight /2;
+    background-color: #aaa;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.profileImg {
+    border-radius: $imgHeight / 2;
+}
+
+.imgInput {
+    display: hidden;
+}
+
+.profileImgText {
+    color: $placeholderColor;
+}

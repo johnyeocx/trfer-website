@@ -1,0 +1,146 @@
+@import '../config';
+@import '../authConfig';
+@import '../configs/buttonConfig';
+
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    // height: 100vh;
+    min-height: 500px;
+
+    @media (max-width: $breakpoint-tablet) {
+        min-height: none;
+        // background-color: $bgColor;
+    }
+}
+
+
+.mainContainer {
+    height: 90vh;
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
+    min-height: 500px;
+    @include flexCenter(column);
+    align-items: flex-start;
+    padding: 20px $horizontalPadding;
+    border-radius: 20px;
+
+    @media (max-width: $breakpoint-tablet) {
+        border-radius: 0px;
+        max-height: none;
+    }
+}
+
+.headerText {
+    font-size: $header5;
+    padding-left: $textPadding;
+    font-weight: 800;
+}
+
+.selectProviderHeader {
+    padding-left: $textPadding;
+    font-weight: 800;
+    font-size: $para2;
+}
+
+
+
+.logoContainer {
+    width: 110px;
+    padding-left: 10px;
+    margin-bottom: 8px;
+}
+
+.divider {
+    width: 100%;
+    margin: 15px 0px;
+    padding: 0px 10px;
+
+    @include flexCenter(row);
+
+    p {
+        margin: 0px 15px;
+        margin-bottom: 4px;
+        color: #ccc;
+    }
+
+    .line {
+        height: 2px;
+        background-color: #ccc;
+        width: 50%;
+    }
+}
+
+.selectCreateContainer {
+    height: $buttonHeight;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 30px;
+    color: white;
+    background-color: #111;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    font-size: $para3;
+
+    @include flexCenter(row);
+}
+
+.backButton {
+ padding-left: $textPadding;
+ margin-bottom: 10px;
+ 
+ .logo {
+    font-size: 25px;
+ }
+}
+
+.descriptionText {
+    padding-left: $textPadding + 2px;
+    font-size: $para3;
+}
+
+.otpGroup {
+    padding-left: $textPadding;
+}
+
+.otpInput {
+    border: 1.5px solid #ccc;
+    background-color: transparent;
+    // width: 100% !important;
+    width: calc(100% / 6) !important;
+    padding: 15px 0px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: $para3;
+    font-weight: 500;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.resendButton {
+    padding-left: $textPadding;
+    font-size: $para3;
+    color: $text3Color;
+}
+
+.resendButtonActive {
+    color: $text2Color
+}
+
+.bottomText {
+    padding-left: $textPadding;
+    font-size: $para4;
+    color: $text3Color;
+    font-weight: 500;
+    span {
+        color: black
+    }
+}
+
+.setNameDescription {
+    padding-left: $textPadding;
+}

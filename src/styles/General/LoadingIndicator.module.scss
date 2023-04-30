@@ -1,0 +1,21 @@
+@keyframes rotating {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+$spinnerHeight: 30px;
+.spinner {
+    width: $spinnerHeight;
+    height: $spinnerHeight;
+    border-radius: $spinnerHeight/2;
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgb(106, 106, 106);
+    border-left-color: white;
+    background-color: transparent;
+    animation: rotating 1s 0.25s linear infinite;
+}

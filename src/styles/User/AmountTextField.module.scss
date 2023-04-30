@@ -1,0 +1,95 @@
+@import '../config';
+
+
+$containerHeight: 60px;
+
+$containerWidth: 100%;
+
+$authBoxColor: #FFF;
+
+$textfieldHorizPadding: 20px;
+
+.container {
+    background-color: $authBoxColor;
+    width: $containerWidth;
+    height: $containerHeight;
+
+    position: relative;
+    border-radius: 15px;
+    border: 0px solid $errColor;
+    transition: 0.05s;
+    border: 2px solid #ccc;
+}
+
+.errContainer {
+    border: 2px solid $errColor;
+    transition: 0.05s;
+}
+
+.inputContainer {
+    width: 100%;
+    cursor: text;
+    background-color: red;
+
+    .prefix {
+        position: absolute;
+        top: 23px;
+        left: 20px;
+        font-weight: 500;
+        font-size: $para3;
+    }
+
+    .suffix {
+        position: absolute;
+        top: 23px;
+        right: 20px;
+        font-weight: 500;
+        font-size: $para3;
+    }
+
+    .field {
+        background: transparent;
+        border: none;
+        position: absolute;
+        font-family: $primary-font;
+        font-size:  $para3;
+        left: $textfieldHorizPadding + 15px;
+        height: $containerHeight;
+        top: 0.3rem;
+        width: calc(100% - $textfieldHorizPadding * 2);
+        
+  
+        &:focus {
+            outline: none;
+        }
+    
+        &:focus, &:not(:placeholder-shown) {
+            & + .label {
+                transform: translate(0rem, -8%) scale(.65);
+                // color: var(--color-accent);
+            }
+        }
+    }
+
+    .label {
+        position: absolute;
+        @include flexCenter(column);
+        align-items: flex-start;
+        // top: 0.2rem;
+        left: $textfieldHorizPadding;
+        height: $containerHeight;
+
+        font-size: $para4;
+        white-space: nowrap;
+        color: $placeholderColor;
+        transform: translate(0, 0);
+        transform-origin: 0 0;
+        transition: transform 120ms ease-in;
+        line-height: 1.2;
+    }
+}
+
+.passwordField {
+    font-size: calc($para5 - 2px);
+}
+

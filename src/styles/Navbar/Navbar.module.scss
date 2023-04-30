@@ -1,0 +1,27 @@
+@import "../config";
+
+.navContainer {
+    width: 100vw;
+    height: $navHeight;
+    @include flexCenter(row);
+    justify-content: space-between;
+    padding-left: $horizontalPadding - 10px;
+    padding-right: $horizontalPadding;
+}
+
+.logoContainer {
+    width: 110px;
+    padding-left: 10px;
+    margin-bottom: 8px;
+}
+
+.loginButton {
+    font-size: $para5;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.icon {
+    font-size: 30px;
+}   
