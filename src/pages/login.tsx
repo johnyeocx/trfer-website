@@ -23,8 +23,7 @@ export enum LoginPage {
 	verifyEmail,
 }
 
-function login() {
-	const dispatch = useDispatch();
+function Login() {
 	const router = useRouter();
 
 	const [email, setEmail] = useState("");
@@ -63,4 +62,4 @@ function login() {
 	);
 }
 
-export default login;
+export default Login;

@@ -5,7 +5,6 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<meta name="theme-color" content="#FFF" />
-				<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
 			</Head>
 
 			<body>

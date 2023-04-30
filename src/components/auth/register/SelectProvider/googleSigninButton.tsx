@@ -6,7 +6,6 @@ import { auth } from "@/pages/_app";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { AuthService } from "@/services/authService";
 import { AuthStatus, setAuthStatus, setShowLoginModal } from "@/redux/appSlice";
-import { CusService } from "@/services/cusService";
 import { useDispatch } from "react-redux";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
 import { useRouter } from "next/router";
@@ -51,12 +50,6 @@ function GoogleSigninButton({ setErrText }: GoogleSigninProps) {
 			}
 			return;
 		}
-
-		await CusService.getCusData(dispatch);
-		dispatch(setAuthStatus(AuthStatus.loggedIn));
-		dispatch(setShowLoginModal(false));
-		router.push("/home");
-		setLoading(false);
 	};
 
 	return (

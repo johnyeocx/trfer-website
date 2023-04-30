@@ -4,16 +4,17 @@ import GoogleSigninButton from "../register/SelectProvider/googleSigninButton";
 import Margin from "@/components/general/margin";
 import MyButton from "@/components/general/MyButton";
 import AuthTextField from "../authTextField";
-import { Divider } from "../login";
 import { AuthService } from "@/services/authService";
 import { LoginPage } from "@/pages/login";
 import { useRouter } from "next/router";
+import { Divider } from "../register/01_SelectProvider";
 
 type InputEmailProps = {
 	email: string;
 	setEmail: Dispatch<SetStateAction<string>>;
 	setPage: Dispatch<SetStateAction<LoginPage>>;
 };
+
 function InputEmail({ email, setEmail, setPage }: InputEmailProps) {
 	const router = useRouter();
 	const [errText, setErrText] = useState("");
@@ -68,7 +69,7 @@ function InputEmail({ email, setEmail, setPage }: InputEmailProps) {
 				className={styles.bottomText}
 				onClick={() => router.push("/register")}
 			>
-				Don't have an account? <span>Register here</span>
+				Don&apos;t have an account? <span>Register here</span>
 			</button>
 		</>
 	);

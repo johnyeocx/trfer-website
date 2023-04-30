@@ -110,7 +110,7 @@ function InputDetails() {
 
 	useEffect(() => {
 		setEnabled(isEnabled(details));
-	}, []);
+	}, [details]);
 
 	return (
 		<div className={styles.pageContainer}>

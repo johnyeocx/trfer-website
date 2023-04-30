@@ -5,11 +5,9 @@ import Margin from "@/components/general/margin";
 import MyButton from "@/components/general/MyButton";
 
 import Logo from "../../public/logo.svg";
-import { Divider } from "../components/auth/login";
 import SelectProvider from "@/components/auth/register/01_SelectProvider";
 import InputDetails from "@/components/auth/register/03_InputDetails";
 import VerifyEmail from "@/components/auth/register/02_VerifyEmail";
-import SetName from "@/components/general/setName";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useRouter } from "next/router";

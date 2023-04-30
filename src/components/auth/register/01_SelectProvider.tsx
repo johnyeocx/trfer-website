@@ -1,8 +1,6 @@
 import Margin from "@/components/general/margin";
 import React, { Dispatch, SetStateAction, useState } from "react";
 
-import { Divider } from "../login";
-
 import styles from "../../../styles/Auth/Register.module.scss";
 import GoogleSigninButton from "./SelectProvider/googleSigninButton";
 import { RegDetails, RegPage } from "@/pages/register";
@@ -19,6 +17,16 @@ type SelectProviderProps = {
 	details: RegDetails;
 	setDetails: Dispatch<SetStateAction<RegDetails>>;
 	setPage: Dispatch<SetStateAction<RegPage>>;
+};
+
+export const Divider = () => {
+	return (
+		<div className={styles.divider}>
+			<div className={styles.line} />
+			<p>or</p>
+			<div className={styles.line} />
+		</div>
+	);
 };
 
 function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
@@ -61,7 +69,7 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 				<h1>trf.</h1>
 			</div>
 			<h1 className={styles.selectProviderHeader}>
-				Let's get your payment link up.{" "}
+				Let&apos;s get your payment link up.{" "}
 			</h1>
 			<Margin height={20} />
 			<HomeTextField

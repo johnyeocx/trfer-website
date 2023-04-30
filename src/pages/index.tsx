@@ -26,7 +26,7 @@ export default function Root() {
 
 			<div className={styles.contentContainer}>
 				<h1 className={styles.landingText}>
-					What's your <span className={styles.cancel}>bank details</span>{" "}
+					What&apos;s your <span className={styles.cancel}>bank details</span>{" "}
 					<span className={styles.title}>trfer.me</span>?
 				</h1>
 				<Margin height={10} />
@@ -41,7 +41,7 @@ export default function Root() {
 					href={`/register?username=${username}`}
 					className={styles.buttonContainer}
 				>
-					Let's Go!
+					Let&apos;s Go!
 				</Link>
 			</div>
 			<Margin height={50} />
