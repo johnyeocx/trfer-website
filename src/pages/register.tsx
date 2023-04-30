@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import ConnectBank from "@/components/auth/register/04_ConnectBank";
 import { AuthService } from "@/services/authService";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
+import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
 
 export enum RegPage {
 	selectProvider,
@@ -48,11 +49,13 @@ function Register() {
 
 	const onVerifyClicked = async (latestOTP: string) => {
 		try {
-			const res = await AuthService.verifyEmailRegister({
+			const { data } = await AuthService.verifyEmailRegister({
 				email: details.email,
 				otp: latestOTP,
 			});
-			console.log(res);
+
+			localStorage.setItem(accessTokenKey, data.access_token);
+			localStorage.setItem(refreshTokenKey, data.refresh_token);
 		} catch (error: any) {
 			console.log("Failed to verify email");
 			setVerifyErrText(AuthErrFuncs.getVerifyReqErrText(error.response.status));

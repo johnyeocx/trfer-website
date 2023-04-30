@@ -39,7 +39,8 @@ function HomePage() {
 	const initPage = async () => {
 		const user = await UserService.getUserData(dispatch);
 		if (!user) {
-			router.push("/login");
+			// router.push("/login");
+			return;
 		}
 		if (
 			user!.firstName == null ||

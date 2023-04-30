@@ -22,11 +22,12 @@ function InputEmail({ email, setEmail, setPage }: InputEmailProps) {
 
 	const loginClicked = async () => {
 		setLoading(true);
+
 		try {
 			const res = await AuthService.login(email);
 			console.log(res);
 		} catch (error: any) {
-			console.log("Failed to login");
+			console.log("Failed to login: ", error);
 			setLoading(false);
 			return;
 		}

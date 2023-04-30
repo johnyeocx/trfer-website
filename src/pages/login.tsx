@@ -7,6 +7,7 @@ import VerifyEmail from "@/components/auth/register/02_VerifyEmail";
 import { useRouter } from "next/router";
 import { AuthService } from "@/services/authService";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
+import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
 
 export const Divider = () => {
 	return (
@@ -32,11 +33,13 @@ function Login() {
 
 	const onVerifyClicked = async (latestOtp: string) => {
 		try {
-			const res = await AuthService.verifyEmailLogin({
+			const { data } = await AuthService.verifyEmailLogin({
 				email: email,
 				otp: latestOtp,
 			});
-			console.log(res);
+
+			localStorage.setItem(accessTokenKey, data.access_token);
+			localStorage.setItem(refreshTokenKey, data.refresh_token);
 		} catch (error: any) {
 			console.log("Failed to verify email");
 			setVerifyErrText(AuthErrFuncs.getVerifyReqErrText(error.response.status));

@@ -1,24 +1,19 @@
-import { accessTokenKey, endpoint } from "@/misc/constants";
+import { endpoint } from "@/misc/constants";
 import axios from "axios";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
-
-import createAuthRefreshInterceptor from "axios-auth-refresh";
-import { refreshAuthLogic } from "./authService";
-import { setUser } from "@/redux/user/userSlice";
 import { UserFuncs } from "@/models/user/user";
+import { requestInterceptor, responseInterceptor } from "./config";
 
-axios.interceptors.request.use(
-	(config): any => {
-		config.withCredentials = true;
-		return config;
-	},
-	(error) => {
-		return Promise.reject(error);
-	}
+axios.interceptors.request.use(requestInterceptor, (error) =>
+	Promise.reject(error)
 );
 
-// Instantiate the interceptor
-createAuthRefreshInterceptor(axios, refreshAuthLogic);
+axios.interceptors.response.use((response) => {
+	return response;
+}, responseInterceptor);
+
+// // Instantiate the interceptor
+// createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
 export class UserService {
 	static emailRegister = async (username: string, email: string) =>
@@ -40,7 +35,9 @@ export class UserService {
 
 	static getUserData = async (dispatch: Dispatch<AnyAction>) => {
 		try {
-			const { data } = await axios.get(`${endpoint}/api/user/data`);
+			const { data } = await axios.get(`${endpoint}/api/user/data`, {
+				withCredentials: true,
+			});
 
 			const userJson = data.user;
 

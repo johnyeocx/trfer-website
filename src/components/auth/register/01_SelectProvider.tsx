@@ -12,6 +12,7 @@ import { setShowLoginModal } from "@/redux/appSlice";
 import HomeTextField from "@/components/home/HomeTextField";
 import AuthTextField from "../authTextField";
 import { UserService } from "@/services/userService";
+import MyButton from "@/components/general/MyButton";
 
 type SelectProviderProps = {
 	details: RegDetails;
@@ -89,12 +90,11 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 			/>
 			<Margin height={25} />
 
-			<button
-				className={styles.selectCreateContainer}
-				onClick={() => nextClicked()}
-			>
-				<p>Sign up with email</p>
-			</button>
+			<MyButton
+				onClick={nextClicked}
+				text="Sign up with email"
+				loading={loading}
+			/>
 			<Margin height={15} />
 			<button className={styles.bottomText} onClick={() => navToLogin()}>
 				Already have an account? <span>Sign in here</span>
