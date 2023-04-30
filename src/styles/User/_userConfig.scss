@@ -1,0 +1,11 @@
+$containerHeight: 60px;
+$containerWidth: 100%;
+
+@mixin containerStyle {
+    width: $containerWidth;
+    height: $containerHeight;
+    
+    background-color: #EFEFEF;
+    border-radius: 15px;
+    position: relative;
+}

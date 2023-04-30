@@ -98,6 +98,7 @@ function UserPage() {
 	if (invalidPage) return <div>Page Not Found</div>;
 	return (
 		<div className={styles.pageContainer}>
+			<div className={styles.headerContainer}>trf.</div>
 			<div className={styles.mainContainer}>
 				<div className={styles.row1}>
 					<div className={styles.imgContainer}>

@@ -2,13 +2,13 @@
 @import '../authConfig';
 @import '../configs/buttonConfig';
 
+
 .pageContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter(column);
+    height: 100vh;
     background-color: white;
-    // height: 100vh;
     min-height: 500px;
+    padding-bottom: 20px;
 
     @media (max-width: $breakpoint-tablet) {
         min-height: none;
@@ -16,11 +16,17 @@
     }
 }
 
+.headerContainer {
+    letter-spacing: 0px;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
 
 .mainContainer {
-    height: 90vh;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     max-height: 700px;
     min-height: 500px;
     @include flexCenter(column);
@@ -29,7 +35,7 @@
     border-radius: 20px;
 
     @media (max-width: $breakpoint-tablet) {
-        border-radius: 0px;
+        height: 90vh;
         max-height: none;
     }
 }

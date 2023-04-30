@@ -1,24 +1,15 @@
 @import '../config';
+@import './userConfig';
 
 
-$containerHeight: 60px;
-
-$containerWidth: 100%;
 
 $authBoxColor: #FFF;
 
 $textfieldHorizPadding: 20px;
 
 .container {
-    background-color: $authBoxColor;
-    width: $containerWidth;
-    height: $containerHeight;
-
-    position: relative;
-    border-radius: 15px;
-    border: 0px solid $errColor;
+    @include containerStyle;
     transition: 0.05s;
-    border: 2px solid #ccc;
 }
 
 .errContainer {
@@ -29,11 +20,10 @@ $textfieldHorizPadding: 20px;
 .inputContainer {
     width: 100%;
     cursor: text;
-    background-color: red;
 
     .prefix {
         position: absolute;
-        top: 23px;
+        top: 22.75px;
         left: 20px;
         font-weight: 500;
         font-size: $para3;
@@ -43,8 +33,8 @@ $textfieldHorizPadding: 20px;
         position: absolute;
         top: 23px;
         right: 20px;
-        font-weight: 500;
-        font-size: $para3;
+        font-weight: 600;
+        font-size: calc($para3 - 1px);
     }
 
     .field {
@@ -57,6 +47,10 @@ $textfieldHorizPadding: 20px;
         height: $containerHeight;
         top: 0.3rem;
         width: calc(100% - $textfieldHorizPadding * 2);
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            display: none;
+        }
         
   
         &:focus {
@@ -75,10 +69,10 @@ $textfieldHorizPadding: 20px;
         position: absolute;
         @include flexCenter(column);
         align-items: flex-start;
-        // top: 0.2rem;
         left: $textfieldHorizPadding;
         height: $containerHeight;
 
+        // top: -0.5px;
         font-size: $para4;
         white-space: nowrap;
         color: $placeholderColor;

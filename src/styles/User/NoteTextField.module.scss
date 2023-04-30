@@ -1,8 +1,8 @@
 @import '../config';
 @import '../authConfig';
+@import './userConfig';
 
 
-$containerHeight: 60px;
 
 $containerWidth: 100%;
 
@@ -11,15 +11,9 @@ $authBoxColor: #FFF;
 $textfieldHorizPadding: 20px;
 
 .container {
-    background-color: $authBoxColor;
-    width: $containerWidth;
-    height: $containerHeight;
-
-    position: relative;
-    border-radius: 15px;
-    border: 0px solid $errColor;
+    @include containerStyle;
     transition: 0.05s;
-    border: 2px solid #ccc;
+ 
 }
 
 .errContainer {
@@ -60,10 +54,8 @@ $textfieldHorizPadding: 20px;
         position: absolute;
         @include flexCenter(column);
         align-items: flex-start;
-        // top: 0.2rem;
         left: $textfieldHorizPadding;
         height: $containerHeight;
-
         font-size: $para4;
         white-space: nowrap;
         color: $placeholderColor;
