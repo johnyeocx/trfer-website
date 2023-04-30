@@ -51,6 +51,7 @@ function UserPage() {
 			setUser(user);
 		} catch (error) {
 			// setLoading(false);
+			console.log(error);
 		}
 
 		setLoading(false);
