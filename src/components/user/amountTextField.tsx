@@ -27,13 +27,21 @@ function AuthTextField({ value, onChange, error }: AmountTextFieldProps) {
 				</div>
 				<input
 					type="number"
-					step=".01"
+					step="0.01"
 					className={`${styles.field}`}
 					placeholder=" "
 					value={value}
 					onFocus={() => setFocused(true)}
 					onBlur={() => setFocused(false)}
-					onChange={(e) => onChange(e.target.value)}
+					onChange={(e) => {
+						let val = e.target.value;
+						let decIndex = value.indexOf(".");
+						if (decIndex !== -1 && val.length > decIndex + 3) {
+							onChange(val.substring(0, decIndex + 3));
+						} else {
+							onChange(val);
+						}
+					}}
 				/>
 
 				<span className={styles.label}>Amount</span>

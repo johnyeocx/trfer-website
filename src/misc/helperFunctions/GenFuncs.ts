@@ -8,4 +8,6 @@ export class GenFuncs {
 	// 	console.log(date);
 	// 	// return dateUnix;
 	// };
+
+	// static parse
 }

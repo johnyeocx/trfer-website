@@ -45,6 +45,7 @@ function UserPage() {
 
 	const getUser = async () => {
 		if (username === undefined) return;
+
 		try {
 			const { data } = await UserService.getUser(username);
 			const user = UserFuncs.fromJson(data);
@@ -58,17 +59,15 @@ function UserPage() {
 	};
 
 	const trfClicked = async () => {
-		const amount = 100;
-		const note = "Test Note";
 		setTrfLoading(true);
-
 		if (username === null) return;
+		let amtFloat = parseFloat(details.amount);
 
 		try {
 			const { data }: any = await TransferService.transferOpenAmt(
 				username!,
-				amount,
-				note
+				amtFloat,
+				details.note
 			);
 			setToken(data.link_token);
 		} catch (error) {
@@ -77,6 +76,13 @@ function UserPage() {
 			return;
 		}
 		setTrfLoading(false);
+	};
+
+	const [enabled, setEnabled] = useState(false);
+	const isEnabled = (amount: string, note: string) => {
+		let amtFloat = parseFloat(amount);
+		if (!amtFloat) return false;
+		return true;
 	};
 
 	useEffect(() => {
@@ -119,7 +125,10 @@ function UserPage() {
 				<Margin height={20} />
 				<AmountTextField
 					value={details.amount}
-					onChange={(val) => setDetails({ ...details, amount: val })}
+					onChange={(val) => {
+						setEnabled(isEnabled(val, details.note));
+						setDetails({ ...details, amount: val });
+					}}
 				/>
 				<Margin height={20} />
 				<NoteTextField
@@ -128,7 +137,12 @@ function UserPage() {
 					placeholder="Note"
 				/>
 				<Margin height={30} />
-				<MyButton text="Trf Now" onClick={trfClicked} loading={trfLoading} />
+				<MyButton
+					text="Trf Now"
+					onClick={trfClicked}
+					loading={trfLoading}
+					enabled={enabled}
+				/>
 			</div>
 		</div>
 	);
