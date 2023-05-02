@@ -13,14 +13,16 @@ type ConnectBankProps = {
 };
 function ConnectBank({ token }: ConnectBankProps) {
 	const dispatch = useDispatch();
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [saving, setSaving] = useState(false);
 
 	const config: PlaidLinkOptions = {
 		onSuccess: async (public_token, metadata) => {
+			setSaving(true);
 			try {
 				await UserService.setPublicToken(public_token);
 				dispatch(setUserDetails({ publicToken: public_token }));
+				setSaving(false);
 			} catch (error) {
 				console.log("Failed to set public token");
 				return;
@@ -43,7 +45,18 @@ function ConnectBank({ token }: ConnectBankProps) {
 		);
 	} else if (saving) {
 		return (
-			<LoadingPage />
+			<div
+				style={{
+					height: "100vh",
+					width: "100vw",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
+				<LoadingIndicator />
+				<h1>Setting up your account...</h1>
+			</div>
 			// <div
 			// 	style={{
 			// 		display: "flex",

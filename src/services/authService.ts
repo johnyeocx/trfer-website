@@ -28,15 +28,6 @@ export class AuthService {
 		);
 	};
 
-	// static refreshToken = async (refreshToken: string) =>
-	// 	await axios.post(
-	// 		`${endpoint}/api/auth/refresh_token`,
-	// 		{
-	// 			refresh_token: refreshToken,
-	// 		},
-	// 		{ withCredentials: false }
-	// 	);
-
 	static authenticate = async (dispatch: any) => {
 		try {
 			await AuthService.validate();

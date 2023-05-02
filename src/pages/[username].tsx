@@ -11,7 +11,7 @@ import AuthTextField from "@/components/auth/authTextField";
 import AmountTextField from "@/components/user/amountTextField";
 import NoteTextField from "@/components/user/noteTextField";
 import MyButton from "@/components/general/MyButton";
-import { TransferService } from "@/services/transferService";
+import { PaymentService } from "@/services/transferService";
 import { PlaidLinkOptions, usePlaidLink } from "react-plaid-link";
 
 function UserPage() {
@@ -64,7 +64,7 @@ function UserPage() {
 		let amtFloat = parseFloat(details.amount);
 
 		try {
-			const { data }: any = await TransferService.transferOpenAmt(
+			const { data }: any = await PaymentService.transferOpenAmt(
 				username!,
 				amtFloat,
 				details.note

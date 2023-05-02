@@ -19,8 +19,11 @@ export const requestInterceptor = async (config: any) => {
 export const responseInterceptor = async (error: AxiosError) => {
 	const { config, response }: any = error;
 
+	console.log(config);
 	const refreshCondition =
-		config.withCredentials !== false && response.status === 401;
+		config.withCredentials !== false &&
+		response.status === 401 &&
+		config.url !== `${endpoint}/api/auth/refresh_user_token`;
 	if (!refreshCondition) return Promise.reject(error);
 
 	const refreshToken = localStorage.getItem(refreshTokenKey);
@@ -32,7 +35,8 @@ export const responseInterceptor = async (error: AxiosError) => {
 			`${endpoint}/api/auth/refresh_user_token`,
 			{
 				refresh_token: refreshToken,
-			}
+			},
+			{ withCredentials: false }
 		);
 		localStorage.setItem(accessTokenKey, data.access_token);
 		localStorage.setItem(refreshTokenKey, data.refresh_token);
