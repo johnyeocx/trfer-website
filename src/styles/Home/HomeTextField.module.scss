@@ -2,20 +2,23 @@
 
 .inputContainer {
     width: 100%;
-    background-color: white;
 
     height: 60px;
     display: flex;
     padding-left: 16px;
 
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
     transition: 0.1s ease-in;
+    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid transparent;
+    margin-top: 8px;
 }
 
 .inputFocused {
-    box-shadow: #0683d7b2 0px 4px 4px;
+    // box-shadow: #0683d7b2 0px 4px 4px;
+    border: 2px solid white;
 }
 
 .prefixText {
@@ -28,21 +31,29 @@
 
     font-size: $para3;
     font-weight: 500;
+    color: white;
+    
 }
 
 .inputField {
     width: 50%;
     height: 100%;
-
+    
     background: transparent;
     border: none;
     font-size: $para3;
     font-weight: 500;
     flex: 1;
     padding-right: 16px;
+    padding-bottom: 2px;
+    color: white;
 
     &:focus  {
         border: none;
         outline: none;
+    }
+
+    &::placeholder {
+        color: #DDD;
     }
 }

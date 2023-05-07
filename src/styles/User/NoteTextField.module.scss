@@ -12,13 +12,10 @@ $textfieldHorizPadding: 20px;
 
 .container {
     @include containerStyle;
-    transition: 0.05s;
- 
 }
 
 .errContainer {
     border: 2px solid $errColor;
-    transition: 0.05s;
 }
 
 .inputContainer {

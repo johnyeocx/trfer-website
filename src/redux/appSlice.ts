@@ -19,6 +19,7 @@ export const AppSlice = createSlice({
 		showRegisterModal: false,
 		showProductModal: false,
 		tab: AppTab.explore,
+		loading: false,
 	},
 
 	reducers: {
@@ -39,6 +40,9 @@ export const AppSlice = createSlice({
 		setAppTab(state, action) {
 			state.tab = action.payload;
 		},
+		setPageLoading(state, action) {
+			state.loading = action.payload;
+		},
 	},
 });
 
@@ -48,5 +52,6 @@ export const {
 	setShowRegisterModal,
 	setAppTab,
 	setShowProductModal,
+	setPageLoading,
 } = AppSlice.actions;
 export default AppSlice.reducer;

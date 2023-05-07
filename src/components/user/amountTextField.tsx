@@ -5,23 +5,57 @@ type AmountTextFieldProps = {
 	value: string;
 	onChange: (val: string) => void;
 	error?: boolean;
+	height?: number;
+	scale?: number;
+	bgColor?: string;
+	placeholderColor?: string;
+	textColor?: string;
 };
-function AuthTextField({ value, onChange, error }: AmountTextFieldProps) {
+function AuthTextField({
+	value,
+	onChange,
+	error,
+	scale,
+	bgColor = "#FAFAFA",
+	placeholderColor = "#8F8F8F",
+	textColor = "black",
+}: AmountTextFieldProps) {
 	const [focused, setFocused] = useState(false);
-	return (
-		<div className={`${styles.container} ${error && styles.errContainer}`}>
-			<label className={styles.inputContainer}>
-				{/* <div className={styles.fieldContainer}> */}
 
+	const width = () => {
+		if (!scale) return null;
+		return ((1 - scale) / scale) * 100 + 100;
+	};
+	return (
+		<div
+			className={`${styles.container} ${error && styles.errContainer}`}
+			style={{
+				transformOrigin: "left",
+				transform: `scale(${scale})`,
+				width: `${width()}%`,
+				backgroundColor: bgColor,
+			}}
+		>
+			<label className={styles.inputContainer}>
 				<div
-					style={!focused && value.length === 0 ? { display: "none" } : {}}
+					style={
+						!focused && value.length === 0
+							? { display: "none" }
+							: { color: textColor }
+					}
 					className={styles.prefix}
 				>
 					£
 				</div>
 				<div
-					style={!focused && value.length === 0 ? { display: "none" } : {}}
 					className={styles.suffix}
+					style={
+						!focused && value.length === 0
+							? { display: "none" }
+							: {
+									color: textColor,
+							  }
+					}
 				>
 					GBP
 				</div>
@@ -33,6 +67,9 @@ function AuthTextField({ value, onChange, error }: AmountTextFieldProps) {
 					value={value}
 					onFocus={() => setFocused(true)}
 					onBlur={() => setFocused(false)}
+					style={{
+						color: textColor,
+					}}
 					onChange={(e) => {
 						let val = e.target.value;
 						let decIndex = value.indexOf(".");
@@ -44,7 +81,14 @@ function AuthTextField({ value, onChange, error }: AmountTextFieldProps) {
 					}}
 				/>
 
-				<span className={styles.label}>Amount</span>
+				<span
+					className={styles.label}
+					style={{
+						color: placeholderColor,
+					}}
+				>
+					Amount
+				</span>
 			</label>
 		</div>
 	);

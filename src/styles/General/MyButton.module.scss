@@ -13,13 +13,14 @@
     font-weight: 700;
     @include flexCenter(row);
 
-    &:active {
-        background-color: #444;
-    }
+
+    // &:active {
+    //     background-color: #444;
+    // }
 }
 
 .disabledContainer {
-    color: #666;
+    color: #666 !important;
 }
 
 

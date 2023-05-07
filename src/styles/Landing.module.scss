@@ -1,0 +1,180 @@
+@import './config';
+
+.page {
+  width: 100vw;
+  padding: 20px 30px;
+  background-color: white;
+  margin-bottom: 100px;
+  @include flexCenter(column);
+}
+
+.contentContainer {
+  @include flexCenter(column);
+  justify-content: flex-end;;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.textBubble {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
+
+  &::before, &::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+  }
+}
+
+$toBgColor: #EEE;
+.fromThem {
+  align-items: flex-start;
+  background-color: $toBgColor;
+  color: #000;
+  font-size: $header5;
+  font-weight: 800;
+  min-width: 100%;
+
+  .cancel{
+    text-decoration: line-through;
+  }
+}
+
+.fromThem:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid $toBgColor;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+.fromThem::after {
+  background-color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+
+$fromBgColor: #248bf5;
+// $fromBgColor: #0084ff;
+.fromMe {
+  align-self: flex-end;
+  background-color: $fromBgColor;
+  color: #fff; 
+  font-size: $para1;
+  font-weight: 500;
+  padding: 20px;
+  min-width: 100%;
+}
+
+.fromMe::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid $fromBgColor;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+.fromMe::after {
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform:translate(-30px, -2px);
+  width: 10px;
+}
+
+.btnsContainer {
+  align-self: flex-end;
+  width: 100%;
+  display: flex;
+  // background-color: blue;
+  justify-content: center;
+}
+
+.buttonContainer {
+  background-color: black;
+  height: 55px;
+  border-radius: 30px;
+  align-self: flex-end;
+  width: 50%;
+  color: white;
+  font-size: $para3;
+  font-weight: 700;
+  @include flexCenter(row);
+
+  .claimIcon {
+    font-size: 17px;
+  }
+
+  &:active {
+      background-color: #444;
+  }
+}
+
+
+
+.section2 {
+  background-color: #f7f7f7;
+  padding: 30px 20px;
+  border-radius: 20px;
+}
+
+
+.subText {
+  text-align: center;
+  font-size: $para4Half;
+}
+
+.imageContainer {
+  position: relative;
+  height: 350px;
+  width: 100%;
+  // background-color: blue;
+}
+
+.section3 {
+  @include flexCenter(column);
+  align-items: center;
+  padding: 10px;
+  // background-color: blue;
+  width: 100%;
+}
+
+.howTitle {
+  width: 100%;
+  align-self: flex-end;
+  font-size: $para1;
+  font-weight: 700;
+}
+
+.howText {
+  padding: 10px 20px;
+  
+  p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: $para3;
+    font-weight: 600;
+    height: 40px;
+    margin: 0px;
+
+    span {
+      width: 20px;
+    }
+  }
+}
+
+.section3End {
+  font-size: $para2;
+  font-weight: 800;
+}
+
+.section3Btn {
+  align-self: center;
+}

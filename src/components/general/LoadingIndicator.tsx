@@ -8,6 +8,7 @@ function LoadingIndicator() {
 				display: "flex",
 				justifyContent: "center",
 				width: "100%",
+				backgroundColor: "transparent",
 			}}
 		>
 			<div className={styles.spinner}></div>{" "}

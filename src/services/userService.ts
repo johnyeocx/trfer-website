@@ -1,7 +1,7 @@
 import { endpoint } from "@/misc/constants";
 import axios from "axios";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
-import { UserFuncs } from "@/models/user/user";
+import { UserFuncs } from "@/models/user/User";
 import { requestInterceptor, responseInterceptor } from "./config";
 
 axios.interceptors.request.use(requestInterceptor, (error) =>
@@ -11,9 +11,6 @@ axios.interceptors.request.use(requestInterceptor, (error) =>
 axios.interceptors.response.use((response) => {
 	return response;
 }, responseInterceptor);
-
-// // Instantiate the interceptor
-// createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
 export class UserService {
 	static emailRegister = async (username: string, email: string) =>
@@ -28,9 +25,28 @@ export class UserService {
 			last_name: lastName,
 		});
 
+	static setProfileImage = async () =>
+		await axios.patch(`${endpoint}/api/user/profile_image`);
+
+	static setName = async (firstName: string, lastName: string) =>
+		await axios.patch(`${endpoint}/api/user/name`, {
+			first_name: firstName,
+			last_name: lastName,
+		});
+
+	static setUsername = async (username: string) =>
+		await axios.patch(`${endpoint}/api/user/username`, {
+			username: username,
+		});
+
 	static setPublicToken = async (publicToken: string) =>
 		await axios.post(`${endpoint}/api/user/initialise_banking`, {
 			public_token: publicToken,
+		});
+
+	static setPageTheme = async (pageTheme: string) =>
+		await axios.patch(`${endpoint}/api/user/page_theme`, {
+			page_theme: pageTheme,
 		});
 
 	static getUserData = async (dispatch: Dispatch<AnyAction>) => {

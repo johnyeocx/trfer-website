@@ -1,5 +1,7 @@
+import { PageTheme } from "@/models/page_themes/PageThemes";
 import { userStateType } from "./userSlice";
-import { User } from "@/models/user/user";
+import { User } from "@/models/user/User";
+import { PageStyle } from "@/models/user/PageStyle";
 
 export const setUserReducer = (
 	state: userStateType,
@@ -13,10 +15,19 @@ export const setUserReducer = (
 export const setUserDetailsReducer = (
 	state: userStateType,
 	action: {
-		payload: { firstName?: string; lastName?: string; publicToken?: string };
+		payload: {
+			username?: string;
+			firstName?: string;
+			lastName?: string;
+			publicToken?: string;
+		};
 	}
 ) => {
 	if (state.user === null) return;
+
+	if (action.payload.username !== undefined) {
+		state.user.username = action.payload.username;
+	}
 
 	if (action.payload.firstName !== undefined)
 		state.user.firstName = action.payload.firstName;
@@ -26,4 +37,25 @@ export const setUserDetailsReducer = (
 
 	if (action.payload.publicToken !== undefined)
 		state.user.publicToken = action.payload.publicToken;
+};
+
+export const setPageStyleReducer = (
+	state: userStateType,
+	action: {
+		payload: PageStyle;
+	}
+) => {
+	state.pageStyle = action.payload;
+};
+
+export const setPageThemeReducer = (
+	state: userStateType,
+	action: {
+		payload: { pageTheme?: PageTheme };
+	}
+) => {
+	if (state.pageStyle === null) return;
+
+	if (action.payload.pageTheme !== undefined)
+		state.pageStyle.pageTheme = action.payload.pageTheme;
 };

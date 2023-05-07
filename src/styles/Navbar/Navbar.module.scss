@@ -5,23 +5,17 @@
     height: $navHeight;
     @include flexCenter(row);
     justify-content: space-between;
-    padding-left: $horizontalPadding - 10px;
-    padding-right: $horizontalPadding;
+    align-items: center;
+    padding: 0px $horizontalPadding;
+    box-shadow: rgba(138, 138, 138, 0.1) 0px 4px 4px;
+    z-index: 10;
 }
 
 .logoContainer {
-    width: 110px;
-    padding-left: 10px;
-    margin-bottom: 8px;
+    font-size: $para2;
+    // background-color: blue;
 }
 
-.loginButton {
-    font-size: $para5;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+.menuIcon {
+    font-size: 20px;
 }
-
-.icon {
-    font-size: 30px;
-}   

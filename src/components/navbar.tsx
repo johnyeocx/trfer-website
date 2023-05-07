@@ -11,6 +11,7 @@ import { AuthService } from "@/services/authService";
 import Logo from "../../public/logo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+	faBars,
 	faCartArrowDown,
 	faCartFlatbed,
 	faCheck,
@@ -38,10 +39,10 @@ function NavBar() {
 		<>
 			<div className={styles.navContainer}>
 				<div className={styles.logoContainer}>
-					{/* {status === AuthStatus.loggedIn ? <LoggedIn /> : <NotLoggedIn />} */}
-					<Logo />
+					{/* <Logo /> */}
+					trf.
 				</div>
-				<FontAwesomeIcon icon={faCartShopping} />
+				<FontAwesomeIcon icon={faBars} className={styles.menuIcon} />
 			</div>
 			{/* {showLoginModal && <Login />} */}
 		</>

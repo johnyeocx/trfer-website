@@ -3,7 +3,7 @@ import { UserService } from "@/services/userService";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/User/User.module.scss";
-import { User, UserFuncs } from "@/models/user/user";
+import { User, UserFuncs } from "@/models/user/User";
 import { endpoint, s3Endpoint } from "@/misc/constants";
 import Image from "next/image";
 import Margin from "@/components/general/margin";
@@ -13,6 +13,7 @@ import NoteTextField from "@/components/user/noteTextField";
 import MyButton from "@/components/general/MyButton";
 import { PaymentService } from "@/services/transferService";
 import { PlaidLinkOptions, usePlaidLink } from "react-plaid-link";
+import { PageTheme, themeColors } from "@/models/page_themes/PageThemes";
 
 function UserPage() {
 	const router = useRouter();
@@ -49,6 +50,7 @@ function UserPage() {
 		try {
 			const { data } = await UserService.getUser(username);
 			const user = UserFuncs.fromJson(data);
+			console.log("User:", user);
 			setUser(user);
 		} catch (error) {
 			// setLoading(false);
@@ -102,9 +104,25 @@ function UserPage() {
 			</div>
 		);
 	if (invalidPage) return <div>Page Not Found</div>;
+
+	let pageTheme = user != null ? user.pageTheme : PageTheme.light;
+	let colors = themeColors[pageTheme];
+
 	return (
-		<div className={styles.pageContainer}>
-			<div className={styles.headerContainer}>trf.</div>
+		<div
+			className={styles.pageContainer}
+			style={{
+				backgroundColor: colors.bgColor,
+			}}
+		>
+			<div
+				style={{
+					color: colors.logoColor,
+				}}
+				className={styles.headerContainer}
+			>
+				trf.
+			</div>
 			<div className={styles.mainContainer}>
 				<div className={styles.row1}>
 					<div className={styles.imgContainer}>
@@ -118,8 +136,22 @@ function UserPage() {
 					</div>
 					<Margin width={20} />
 					<div>
-						<p className={styles.name}>{UserFuncs.fullName(user!)}</p>
-						<p className={styles.username}>trfer.me/{user!.username}</p>
+						<p
+							style={{
+								color: colors.textColor,
+							}}
+							className={styles.name}
+						>
+							{UserFuncs.fullName(user!)}
+						</p>
+						<p
+							style={{
+								color: colors.textColor,
+							}}
+							className={styles.username}
+						>
+							trfer.me/{user!.username}
+						</p>
 					</div>
 				</div>
 				<Margin height={20} />
@@ -129,12 +161,18 @@ function UserPage() {
 						setEnabled(isEnabled(val, details.note));
 						setDetails({ ...details, amount: val });
 					}}
+					bgColor={colors.inputBgColor}
+					placeholderColor={colors.inputPlaceholderColor}
+					textColor={colors.inputTextColor}
 				/>
 				<Margin height={20} />
 				<NoteTextField
 					value={details.note}
 					onChange={(val) => setDetails({ ...details, note: val })}
 					placeholder="Note"
+					bgColor={colors.inputBgColor}
+					placeholderColor={colors.inputPlaceholderColor}
+					textColor={colors.inputTextColor}
 				/>
 				<Margin height={30} />
 				<MyButton
@@ -142,6 +180,8 @@ function UserPage() {
 					onClick={trfClicked}
 					loading={trfLoading}
 					enabled={enabled}
+					bgColor={colors.btnBgColor}
+					textColor={colors.btnTextColor}
 				/>
 			</div>
 		</div>

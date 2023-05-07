@@ -9,7 +9,6 @@ $textfieldHorizPadding: 20px;
 
 .container {
     @include containerStyle;
-    transition: 0.05s;
 }
 
 .errContainer {
@@ -23,10 +22,10 @@ $textfieldHorizPadding: 20px;
 
     .prefix {
         position: absolute;
-        top: 22.75px;
+        top: 22.5px;
         left: 20px;
         font-weight: 500;
-        font-size: $para3;
+        font-size: calc($para3 - 1px);
     }
 
     .suffix {

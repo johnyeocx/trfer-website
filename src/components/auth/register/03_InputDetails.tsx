@@ -3,14 +3,11 @@ import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import AuthTextField from "../authTextField";
 import Margin from "@/components/general/margin";
 import MyButton from "@/components/general/MyButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/pro-solid-svg-icons";
 import styles from "../../../styles/Auth/InputDetails.module.scss";
 import loginStyles from "../../../styles/Auth/Login.module.scss";
 import { UserService } from "@/services/userService";
 import Image from "next/image";
 import Compressor from "compressorjs";
-import { BankingService } from "@/services/bankingService";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "@/redux/user/userSlice";
 
@@ -87,15 +84,6 @@ function InputDetails() {
 				strict: true,
 				maxWidth: 1000,
 				success(result) {
-					// const formData = new FormData();
-
-					// // The third parameter is required for server
-					// formData.append("file", result, result.name);
-
-					// // Send the compressed image file to server with XMLHttpRequest.
-					// axios.post("/path/to/upload", formData).then(() => {
-					// 	console.log("Upload success");
-					// });
 					setDetails({
 						...details,
 						profileImg: result,
