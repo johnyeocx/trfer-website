@@ -28,7 +28,7 @@ export default function Root() {
 					<Margin height={25} />
 
 					<div className={`${styles.fromMe} ${styles.textBubble}`}>
-						It's <HomeTextField value={username} onChange={setUsername} />
+						It&apos;s <HomeTextField value={username} onChange={setUsername} />
 					</div>
 					{/* <HomeTextField value={username} onChange={setUsername} /> */}
 					<Margin height={25} />

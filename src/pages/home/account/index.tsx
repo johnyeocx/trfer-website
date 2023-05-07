@@ -1,18 +1,22 @@
+import styles from "../../../styles/Home/Account/EditAccount.module.scss";
+import { UserFuncs } from "@/models/user/User";
+import { setUserDetails } from "@/redux/user/userSlice";
+import { UserService } from "@/services/userService";
+import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
+
+import { RootState } from "@/redux/store";
+
 import NavBar from "@/components/navbar";
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Home/Account/EditAccount.module.scss";
 import Image from "next/image";
-import { UserFuncs } from "@/models/user/User";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
 import Margin from "@/components/general/margin";
 import AuthTextField from "@/components/auth/authTextField";
 import MyButton from "@/components/general/MyButton";
-import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
+
 import { useRouter } from "next/router";
 import LoadingPage from "@/components/general/LoadingPage";
-import { UserService } from "@/services/userService";
-import { setUser, setUserDetails } from "@/redux/user/userSlice";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/pro-solid-svg-icons";
 

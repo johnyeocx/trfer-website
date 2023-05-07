@@ -140,6 +140,7 @@ export const ThemeSelection = ({ onClick }: any) => {
 
 				return (
 					<button
+						key={index}
 						onClick={() => onClick(theme)}
 						className={`${styles.themeSelectContainer}`}
 						style={{
