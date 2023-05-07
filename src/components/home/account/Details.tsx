@@ -3,12 +3,12 @@ import styles from "../../../styles/Home/Account/Details.module.scss";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faTypewriter } from "@fortawesome/pro-solid-svg-icons";
-import { User, UserFuncs } from "@/models/user/User";
 import Margin from "@/components/general/margin";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { faPenToSquare } from "@fortawesome/pro-regular-svg-icons";
 import { useRouter } from "next/router";
+import { UserFuncs } from "@/models/user/User";
 
 type DetailsProps = {};
 
