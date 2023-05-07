@@ -12,7 +12,7 @@ import { setPageTheme, setUser } from "@/redux/user/userSlice";
 import { BankingService } from "@/services/bankingService";
 import NavBar from "@/components/navbar";
 import Margin from "@/components/general/margin";
-import { UserFuncs } from "@/models/user/User";
+import { UserFuncs } from "@/models/user/user";
 import Image from "next/image";
 import AuthTextField from "@/components/auth/authTextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

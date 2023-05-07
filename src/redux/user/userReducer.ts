@@ -1,6 +1,6 @@
 import { PageTheme } from "@/models/page_themes/PageThemes";
 import { userStateType } from "./userSlice";
-import { User } from "@/models/user/User";
+import { User } from "@/models/user/user";
 import { PageStyle } from "@/models/user/PageStyle";
 
 export const setUserReducer = (

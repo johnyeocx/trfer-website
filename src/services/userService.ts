@@ -1,7 +1,7 @@
 import { endpoint } from "@/misc/constants";
 import axios from "axios";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
-import { UserFuncs } from "@/models/user/User";
+import { UserFuncs } from "@/models/user/user";
 import { requestInterceptor, responseInterceptor } from "./config";
 
 axios.interceptors.request.use(requestInterceptor, (error) =>

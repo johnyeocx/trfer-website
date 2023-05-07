@@ -3,7 +3,7 @@ import { UserService } from "@/services/userService";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/User/User.module.scss";
-import { User, UserFuncs } from "@/models/user/User";
+import { User, UserFuncs } from "@/models/user/user";
 import { endpoint, s3Endpoint } from "@/misc/constants";
 import Image from "next/image";
 import Margin from "@/components/general/margin";

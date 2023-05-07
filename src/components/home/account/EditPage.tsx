@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../../../styles/Home/Account/EditPage.module.scss";
 import Margin from "@/components/general/margin";
 import Image from "next/image";
-import { UserFuncs } from "@/models/user/User";
+import { UserFuncs } from "@/models/user/user";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import AmountTextField from "@/components/user/amountTextField";

@@ -1,5 +1,5 @@
 import styles from "../../../styles/Home/Account/EditAccount.module.scss";
-import { UserFuncs } from "@/models/user/User";
+import { UserFuncs } from "@/models/user/user";
 import { setUserDetails } from "@/redux/user/userSlice";
 import { UserService } from "@/services/userService";
 import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";

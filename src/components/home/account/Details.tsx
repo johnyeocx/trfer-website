@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { faPenToSquare } from "@fortawesome/pro-regular-svg-icons";
 import { useRouter } from "next/router";
-import { UserFuncs } from "@/models/user/User";
+import { UserFuncs } from "@/models/user/user";
 
 type DetailsProps = {};
 

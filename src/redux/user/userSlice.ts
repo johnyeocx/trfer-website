@@ -7,7 +7,7 @@ import {
 	setUserDetailsReducer,
 	setUserReducer,
 } from "./userReducer";
-import { User } from "@/models/user/User";
+import { User } from "@/models/user/user";
 import { PageStyle } from "@/models/user/PageStyle";
 import { PageTheme } from "@/models/page_themes/PageThemes";
 
