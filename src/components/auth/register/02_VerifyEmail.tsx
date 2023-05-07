@@ -1,23 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, {
-	Dispatch,
-	SetStateAction,
-	useMemo,
-	useRef,
-	useState,
-} from "react";
+import React, { useState } from "react";
 import styles from "../../../styles/Auth/Register.module.scss";
 import loginStyles from "../../../styles/Auth/Login.module.scss";
-import { RegDetails, RegPage } from "@/pages/register";
-import { faArrowLeft } from "@fortawesome/pro-solid-svg-icons";
 import OtpInput from "react-otp-input";
 import Margin from "@/components/general/margin";
 import MyButton from "@/components/general/MyButton";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import Countdown from "@/components/general/countdown";
-import { AuthService } from "@/services/authService";
-import { AuthErrFuncs } from "@/models/errors/authErrs";
 
 type VerifyEmailProps = {
 	onVerifyClicked: (latestOtp: string) => Promise<void>;

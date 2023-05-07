@@ -10,11 +10,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/pro-solid-svg-icons";
 import Screen from "../../public/profile.png";
 import LandingImage from "../../public/images/landing_image.png";
+import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
+import { useDispatch } from "react-redux";
 
 export default function Root() {
 	const [username, setUsername] = useState("");
-
 	const router = useRouter();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		(async () => {
+			await GenFuncs.initPage(dispatch, router, null, true);
+		})();
+	}, []);
 
 	return (
 		<>

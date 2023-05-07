@@ -25,7 +25,7 @@ $para5: 0.7rem;
 
 
 
-$navHeight: 50px;
+$navHeight: 70px;
 $placeholderColor: #888;
 $horizontalPadding: 30px;
 
@@ -42,4 +42,13 @@ $bgColor: rgb(250, 250, 250);
     flex-direction: $flexDirection;
     align-items: center;
     justify-content: center;
+}
+
+@mixin errText() {
+
+    width: 100%;
+    padding-right: 30px;
+    font-size: $para4;
+    color: $errColor;
+
 }

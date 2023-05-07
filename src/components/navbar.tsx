@@ -1,50 +1,66 @@
-import { AuthStatus } from "@/redux/appSlice";
+import { AuthStatus, setAuthStatus } from "@/redux/appSlice";
 import { RootState } from "@/redux/store";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/Navbar/Navbar.module.scss";
-import NotLoggedIn from "./navbar/notLoggedIn";
-import LoggedIn from "./navbar/loggedIn";
-import Login from "./auth/login";
-import { AuthService } from "@/services/authService";
+import Margin from "./general/margin";
+import { useRouter } from "next/router";
+import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
+import { setUser } from "@/redux/user/userSlice";
 
-import Logo from "../../public/logo.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faBars,
-	faCartArrowDown,
-	faCartFlatbed,
-	faCheck,
-} from "@fortawesome/pro-solid-svg-icons";
-import { faCartShopping } from "@fortawesome/pro-regular-svg-icons";
-
-function NavBar() {
+export type NavBarProps = {
+	showRight?: boolean;
+	showManage?: boolean;
+};
+function NavBar({ showRight = true, showManage = true }: NavBarProps) {
+	const dispatch = useDispatch();
+	const router = useRouter();
 	const status = useSelector((state: RootState) => state.app.authStatus);
-	const showLoginModal = useSelector(
-		(state: RootState) => state.app.showLoginModal
-	);
-	// const dispatch = useDispatch();
-	// const [loading, setLoading] = useState<boolean>(true);
 
-	// useEffect(() => {
-	// 	if (status !== AuthStatus.loggedIn) {
-	// 		AuthService.authenticate(dispatch);
-	// 	} else {
-	// 		setLoading(false);
-	// 	}
-	// }, []);
+	const logout = async () => {
+		localStorage.removeItem(accessTokenKey);
+		localStorage.removeItem(refreshTokenKey);
+		dispatch(setAuthStatus(AuthStatus.none));
+		router.push("/");
+		// dispatch(setUser(null));
+	};
 
-	// if (loading) return <></>;
 	return (
 		<>
 			<div className={styles.navContainer}>
-				<div className={styles.logoContainer}>
-					{/* <Logo /> */}
-					trf.
-				</div>
-				<FontAwesomeIcon icon={faBars} className={styles.menuIcon} />
+				<div className={styles.logoContainer}>trf.</div>
+				{showRight && (
+					<div className={styles.right}>
+						{showManage && (
+							<button
+								onClick={() => {
+									if (status == AuthStatus.loggedIn) {
+										router.push("/home");
+									} else {
+										router.push("/register");
+									}
+								}}
+								className={`${styles.authBtn} ${styles.signUpBtn}`}
+							>
+								{status == AuthStatus.loggedIn ? "Manage" : "Sign Up"}
+							</button>
+						)}
+						<Margin width={10} />
+						<button
+							onClick={() => {
+								if (status == AuthStatus.loggedIn) {
+									logout();
+								} else {
+									router.push("/login");
+								}
+							}}
+							className={`${styles.authBtn} ${styles.loginBtn}`}
+						>
+							{status == AuthStatus.loggedIn ? "Logout" : "Login"}
+						</button>
+					</div>
+				)}
 			</div>
-			{/* {showLoginModal && <Login />} */}
 		</>
 	);
 }

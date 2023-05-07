@@ -43,8 +43,8 @@ $textPadding: 10px;
 }
 
 .headerText {
-    font-size: $header5;
-    padding-left: $textPadding;
+    font-size: $para1;
+    // padding-left: $textPadding;
     font-weight: 800;
 }
 
@@ -98,4 +98,8 @@ $textPadding: 10px;
     span {
         color: black
     }
+}
+
+.errText {
+    @include errText;
 }

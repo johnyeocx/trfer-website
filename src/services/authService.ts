@@ -28,6 +28,14 @@ export class AuthService {
 		);
 	};
 
+	static externalLogin = async (token: string) => {
+		return await axios.post(
+			`${endpoint}/api/auth/external_login`,
+			{ token },
+			{ withCredentials: false }
+		);
+	};
+
 	static authenticate = async (dispatch: any) => {
 		try {
 			await AuthService.validate();
@@ -40,9 +48,6 @@ export class AuthService {
 
 	static validate = async () =>
 		await axios.post(`${endpoint}/api/auth/validate`);
-
-	static extSignIn = async (body: { token: string | undefined }) =>
-		await axios.post(`${endpoint}/api/c/auth/google_sign_in`, body);
 
 	// static resendEmailVerification = async (body: {
 	// 	email: string;

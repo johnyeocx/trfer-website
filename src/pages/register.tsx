@@ -15,6 +15,7 @@ import ConnectBank from "@/components/auth/register/04_ConnectBank";
 import { AuthService } from "@/services/authService";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
 import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
+import NavBar from "@/components/navbar";
 
 export enum RegPage {
 	selectProvider,
@@ -66,27 +67,25 @@ function Register() {
 	};
 
 	return (
-		<div className={styles.pageContainer}>
-			<div className={styles.mainContainer}>
-				{/* <InputDetails
-					details={details}
-					setDetails={setDetails}
-					setPage={setPage}
-				/> */}
-				{page === RegPage.selectProvider ? (
-					<SelectProvider
-						setPage={setPage}
-						details={details}
-						setDetails={setDetails}
-					/>
-				) : page === RegPage.verifyEmail ? (
-					<VerifyEmail
-						onVerifyClicked={onVerifyClicked}
-						errText={verifyErrText}
-					/>
-				) : null}
+		<>
+			<NavBar showRight={false} />
+			<div className={styles.pageContainer}>
+				<div className={styles.mainContainer}>
+					{page === RegPage.selectProvider ? (
+						<SelectProvider
+							setPage={setPage}
+							details={details}
+							setDetails={setDetails}
+						/>
+					) : page === RegPage.verifyEmail ? (
+						<VerifyEmail
+							onVerifyClicked={onVerifyClicked}
+							errText={verifyErrText}
+						/>
+					) : null}
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 

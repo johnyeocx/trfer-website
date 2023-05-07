@@ -23,6 +23,10 @@ $logoHeight: 30px;
     margin-right: 15px;
 }
 
+.disabledBtn {
+    color: #CCC;
+}
+
 @keyframes rotating {
     from {
         transform: rotate(0deg);
@@ -44,3 +48,4 @@ $spinnerHeight: 30px;
     background-color: transparent;
     animation: rotating 1s 0.25s linear infinite;
 }
+

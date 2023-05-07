@@ -6,13 +6,26 @@ import GoogleSigninButton from "./SelectProvider/googleSigninButton";
 import { RegDetails, RegPage } from "@/pages/register";
 
 import Logo from "../../../../public/logo.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
-import { setShowLoginModal } from "@/redux/appSlice";
-import HomeTextField from "@/components/home/HomeTextField";
+import {
+	AuthStatus,
+	setAuthStatus,
+	setPageLoading,
+	setShowLoginModal,
+} from "@/redux/appSlice";
+
 import AuthTextField from "../authTextField";
 import { UserService } from "@/services/userService";
 import MyButton from "@/components/general/MyButton";
+import UsernameTextField from "./SelectProvider/UsernameTextField";
+import { RootState } from "@/redux/store";
+import LoadingPage from "@/components/general/LoadingPage";
+import { User, signOut } from "firebase/auth";
+import { AuthService } from "@/services/authService";
+import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
+import { auth } from "@/pages/_app";
+import { AuthErrFuncs } from "@/models/errors/authErrs";
 
 type SelectProviderProps = {
 	details: RegDetails;
@@ -33,8 +46,11 @@ export const Divider = () => {
 function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 	const dispatch = useDispatch();
 	const router = useRouter();
+	const pageLoading = useSelector((state: RootState) => state.app.loading);
 	const [errText, setErrText] = useState<string>("");
 	const [loading, setLoading] = useState(false);
+	const [enabled, setEnabled] = useState(false);
+	const [extEnabled, setExtEnabled] = useState(false);
 
 	const nextClicked = async () => {
 		// setPage(RegPage.verifyEmail);
@@ -59,26 +75,68 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 		router.push("/login");
 	};
 
-	const isEnabled = () => {
+	const isEnabled = (newDetails: any) => {
 		return details.username.length > 0 && details.email.length > 0;
+	};
+
+	const isExtEnabled = (newDetails: any) => {
+		return newDetails.username.length > 0;
+	};
+
+	const onTokenSuccess = async (user: User) => {
+		try {
+			const token = await user?.getIdToken();
+			dispatch(setPageLoading(true));
+			const { data } = await UserService.externalRegister(
+				token,
+				details.username
+			);
+			localStorage.setItem(accessTokenKey, data.access_token);
+			localStorage.setItem(refreshTokenKey, data.refresh_token);
+			setAuthStatus(AuthStatus.loggedIn);
+			router.push("/home");
+		} catch (error: any) {
+			dispatch(setPageLoading(false));
+			await signOut(auth);
+			if (error.response != null) {
+				let errorText = AuthErrFuncs.getExtRegisterErrText(
+					error.response.status,
+					error.response.data
+				);
+				console.log("Error:", errText);
+
+				setErrText(errorText);
+			} else {
+				setErrText("Failed to sign in. Please try again later");
+			}
+
+			return;
+		}
 	};
 
 	return (
 		<>
-			<div className={styles.logoContainer}>
-				{/* <Logo /> */}
-				<h1>trf.</h1>
-			</div>
+			{pageLoading && <LoadingPage bgColor="rgba(20, 20, 20, 0.5)" />}
 			<h1 className={styles.selectProviderHeader}>
-				Let&apos;s get your payment link up.{" "}
+				{/* Let&apos;s get your payment link up.{" "} */}
+				Create your account
 			</h1>
-			<Margin height={20} />
-			<HomeTextField
+			<Margin height={10} />
+			<UsernameTextField
 				value={details.username}
-				onChange={(username) => setDetails({ ...details, username })}
+				onChange={(username) => {
+					setExtEnabled(isExtEnabled({ ...details, username }));
+					setEnabled(isEnabled({ ...details, username }));
+					setDetails({ ...details, username });
+				}}
 			/>
 			<Margin height={25} />
-			<GoogleSigninButton setErrText={setErrText} />
+			<GoogleSigninButton
+				setErrText={setErrText}
+				onTokenSuccess={onTokenSuccess}
+				enabled={extEnabled}
+				text="Sign up with Google"
+			/>
 
 			<Divider />
 
@@ -94,18 +152,19 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 				onClick={nextClicked}
 				text="Sign up with email"
 				loading={loading}
+				enabled={enabled}
 			/>
 			<Margin height={15} />
 			<button className={styles.bottomText} onClick={() => navToLogin()}>
 				Already have an account? <span>Sign in here</span>
 			</button>
-			{/* 
+
 			{errText !== "" && (
 				<>
 					<Margin height={20} />
-					<div className={loginStyles.errText}>{errText}</div>
+					<div className={styles.errText}>{errText}</div>
 				</>
-			)} */}
+			)}
 		</>
 	);
 }

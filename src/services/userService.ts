@@ -13,6 +13,16 @@ axios.interceptors.response.use((response) => {
 }, responseInterceptor);
 
 export class UserService {
+	static externalRegister = async (token: string, username: string) =>
+		await axios.post(
+			`${endpoint}/api/user/external_register`,
+			{
+				token: token,
+				username: username,
+			},
+			{ withCredentials: false }
+		);
+
 	static emailRegister = async (username: string, email: string) =>
 		await axios.post(`${endpoint}/api/user/email_register`, {
 			username: username,

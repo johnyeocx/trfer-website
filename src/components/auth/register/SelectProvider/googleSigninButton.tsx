@@ -3,57 +3,70 @@ import styles from "../../../../styles/Auth/GoogleSigninButton.module.scss";
 import googleLogo from "../../../../../public/images/brands/google.png";
 import Image from "next/image";
 import { auth } from "@/pages/_app";
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import {
+	GoogleAuthProvider,
+	User,
+	signInWithPopup,
+	signOut,
+} from "firebase/auth";
 import { AuthService } from "@/services/authService";
-import { AuthStatus, setAuthStatus, setShowLoginModal } from "@/redux/appSlice";
+import {
+	AuthStatus,
+	setAuthStatus,
+	setPageLoading,
+	setShowLoginModal,
+} from "@/redux/appSlice";
 import { useDispatch } from "react-redux";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
 import { useRouter } from "next/router";
+import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
 
 type GoogleSigninProps = {
 	setErrText: Dispatch<SetStateAction<string>>;
+	onTokenSuccess: (user: User) => Promise<void>;
+	enabled?: boolean;
+	text: string;
 };
-function GoogleSigninButton({ setErrText }: GoogleSigninProps) {
+
+function GoogleSigninButton({
+	setErrText,
+	onTokenSuccess,
+	enabled = true,
+	text,
+}: GoogleSigninProps) {
 	const [loading, setLoading] = useState<boolean>(false);
 	const dispatch = useDispatch();
 	const router = useRouter();
 
 	const onSigninClicked = async () => {
+		setErrText("");
+
+		if (!enabled) return;
+
 		const googleProvider = new GoogleAuthProvider();
+		googleProvider.setCustomParameters({
+			prompt: "select_account",
+		});
 
 		let user;
+
 		try {
 			const res = await signInWithPopup(auth, googleProvider);
-
 			user = res.user;
-
-			// await
 		} catch (error) {
 			setErrText("Failed to sign in. Please try again later.");
 			return;
 		}
 
-		try {
-			const token = await user?.getIdToken();
-			await AuthService.extSignIn({ token });
-		} catch (error: any) {
-			await signOut(auth);
-			if (error.response != null) {
-				setErrText(
-					AuthErrFuncs.getExtSigninErrText(
-						error.response.status,
-						error.response.data
-					)
-				);
-			} else {
-				setErrText("Failed to sign in. Please try again later");
-			}
-			return;
-		}
+		await onTokenSuccess(user);
+		dispatch(setPageLoading(false));
 	};
 
 	return (
-		<button className={styles.buttonContainer} onClick={onSigninClicked}>
+		<button
+			className={`${styles.buttonContainer} ${!enabled && styles.disabledBtn}`}
+			onClick={onSigninClicked}
+		>
 			{loading ? (
 				<div className={styles.spinner}></div>
 			) : (
@@ -66,7 +79,7 @@ function GoogleSigninButton({ setErrText }: GoogleSigninProps) {
 							style={{ objectFit: "cover" }}
 						/>
 					</div>
-					<p>Sign in with Google</p>
+					<p>{text}</p>
 				</>
 			)}
 		</button>

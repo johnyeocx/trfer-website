@@ -2,13 +2,18 @@
 @import '../authConfig';
 @import '../configs/buttonConfig';
 
+.topBar {
+    width: 100vw;
+    height: $navHeight;
+}
+
 .pageContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    // height: 100vh;
-    min-height: 500px;
+    // height: calc(100vh - $navHeight);
+    // min-height: 500px;
 
     @media (max-width: $breakpoint-tablet) {
         min-height: none;
@@ -18,7 +23,7 @@
 
 
 .mainContainer {
-    height: 90vh;
+    height: 80vh;
     width: 100%;
     max-width: 500px;
     // max-height: 700px;
@@ -35,18 +40,15 @@
 }
 
 .headerText {
-    font-size: $header5;
+    font-size: $para1;
     padding-left: $textPadding;
     font-weight: 800;
 }
 
 .selectProviderHeader {
-    padding-left: $textPadding;
     font-weight: 800;
-    font-size: $para2;
+    font-size: $para1;
 }
-
-
 
 .logoContainer {
     width: 110px;
@@ -143,4 +145,9 @@
 
 .setNameDescription {
     padding-left: $textPadding;
+}
+
+.errText {
+    padding-left: $textPadding;
+    @include errText;
 }

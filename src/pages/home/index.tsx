@@ -25,6 +25,7 @@ import {
 import Account from "@/components/home/account/Account";
 import EditPage from "@/components/home/account/EditPage";
 import Details from "@/components/home/account/Details";
+import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
 
 export enum Tab {
 	customise,
@@ -52,28 +53,11 @@ function HomePage() {
 		}
 	};
 
-	const initPage = async () => {
-		const user = await UserService.getUserData(dispatch);
-		if (!user) {
-			router.push("/login");
-			return;
-		}
-		if (
-			user!.firstName == null ||
-			user!.lastName == null ||
-			user!.publicToken == null
-		) {
-			await getLinkToken();
-		}
-
-		dispatch(setUser(user));
-		dispatch(setPageTheme({ pageTheme: user.pageTheme }));
-
-		setLoading(false);
-	};
-
 	useEffect(() => {
-		initPage();
+		(async () => {
+			await GenFuncs.initPage(dispatch, router, getLinkToken);
+			setLoading(false);
+		})();
 	}, []);
 
 	if (loading) return <LoadingPage />;
@@ -86,24 +70,26 @@ function HomePage() {
 		return (
 			<>
 				{pageLoading && <LoadingPage bgColor="rgba(20, 20, 20, 0.3)" />}
-				<NavBar />
+				<NavBar showManage={false} />
 
 				<div className={styles.pageContainer}>
 					<div className={styles.header}>
 						<p className={styles.headerText}>Admin</p>
-						<FontAwesomeIcon
-							icon={faArrowUpFromBracket}
-							className={styles.shareIcon}
-						/>
+						<button
+							onClick={() => {
+								navigator.clipboard.writeText(
+									`https://trfer.me/${user!.username}`
+								);
+							}}
+						>
+							<FontAwesomeIcon
+								icon={faArrowUpFromBracket}
+								className={styles.shareIcon}
+							/>
+						</button>
 					</div>
 					<Margin height={12} />
 					<div className={styles.tabContainer}>
-						{/* <TabButton
-							title="Customise"
-							thisTab={Tab.customise}
-							tab={tab}
-							setTab={setTab}
-						/> */}
 						<TabButton
 							title="Account"
 							thisTab={Tab.account}

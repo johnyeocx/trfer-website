@@ -7,6 +7,24 @@ export type AuthErrs = {
 export type AuthReqErrs = {};
 
 export class AuthErrFuncs {
+	static getExtRegisterErrText = (status: number, data: any): string => {
+		// STATUS CONFLIGCTS
+		if (status == 409) {
+			if (data == "email_taken") return "Email already taken";
+			else if (data == "username_taken") return "Username already taken";
+		} else return "Failed to register. Server / connection error";
+
+		return "";
+	};
+
+	static getExtSigninErrText = (status: number, data: any): string => {
+		// STATUS CONFLIGCTS
+		console.log("Error status:", status);
+		if (status == 404) {
+			return `The email you that you signed in with is not valid.`;
+		} else return "Failed to register. Server / connection error";
+	};
+
 	static initAuthErrs = (): AuthErrs => {
 		return {
 			passwordErr: false,
@@ -41,13 +59,6 @@ export class AuthErrFuncs {
 		// STATUS CONFLIGCTS
 		if (status == 409) {
 			return "Email already exists. Please login instead.";
-		} else return "Failed to register. Server / connection error";
-	};
-
-	static getExtSigninErrText = (status: number, data: any): string => {
-		// STATUS CONFLIGCTS
-		if (status == 403) {
-			return `Failed to login. Account was created through ${data.signin_provider}`;
 		} else return "Failed to register. Server / connection error";
 	};
 
