@@ -7,7 +7,7 @@ export type User = {
 	username: string;
 	firstName: string;
 	lastName: string;
-	publicToken: string;
+	bankConnected: boolean;
 	pageTheme: PageTheme;
 };
 
@@ -19,7 +19,7 @@ export class UserFuncs {
 			username: json.username,
 			firstName: json.first_name,
 			lastName: json.last_name,
-			publicToken: json.public_token,
+			bankConnected: json.bank_connected,
 			pageTheme: strToPageTheme(json.page_theme),
 		};
 	};

@@ -1,5 +1,3 @@
-import { CardInfo } from "@/models/customer/card";
-import { Customer } from "@/models/customer/customer";
 import { createSlice } from "@reduxjs/toolkit";
 import {
 	setPageStyleReducer,
@@ -10,15 +8,18 @@ import {
 import { User } from "@/models/user/user";
 import { PageStyle } from "@/models/user/PageStyle";
 import { PageTheme } from "@/models/page_themes/PageThemes";
+import { Payment } from "@/models/user/payments";
 
 export type userStateType = {
 	user: User | null;
+	payments: Array<Payment> | null;
 	pageStyle: PageStyle;
 };
 
 const getInitialState = (): userStateType => {
 	return {
 		user: null,
+		payments: null,
 		pageStyle: {
 			pageTheme: PageTheme.light,
 		},
@@ -30,23 +31,32 @@ export const userSlice = createSlice({
 	initialState: getInitialState(),
 
 	reducers: {
-		setPageStyle(state, payload) {
-			setPageStyleReducer(state, payload);
+		setPageStyle(state, action) {
+			setPageStyleReducer(state, action);
 		},
-		setPageTheme(state, payload) {
-			setPageThemeReducer(state, payload);
-		},
-
-		setUser(state, payload) {
-			setUserReducer(state, payload);
+		setPageTheme(state, action) {
+			setPageThemeReducer(state, action);
 		},
 
-		setUserDetails(state, payload) {
-			setUserDetailsReducer(state, payload);
+		setUser(state, action) {
+			setUserReducer(state, action);
+		},
+
+		setUserDetails(state, action) {
+			setUserDetailsReducer(state, action);
+		},
+
+		setPayments(state, action) {
+			state.payments = action.payload;
 		},
 	},
 });
 
-export const { setUser, setUserDetails, setPageTheme, setPageStyle } =
-	userSlice.actions;
+export const {
+	setUser,
+	setUserDetails,
+	setPageTheme,
+	setPageStyle,
+	setPayments,
+} = userSlice.actions;
 export default userSlice.reducer;

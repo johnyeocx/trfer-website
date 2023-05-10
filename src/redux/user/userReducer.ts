@@ -19,7 +19,7 @@ export const setUserDetailsReducer = (
 			username?: string;
 			firstName?: string;
 			lastName?: string;
-			publicToken?: string;
+			bankConnected?: boolean;
 		};
 	}
 ) => {
@@ -35,8 +35,8 @@ export const setUserDetailsReducer = (
 	if (action.payload.lastName !== undefined)
 		state.user.lastName = action.payload.lastName;
 
-	if (action.payload.publicToken !== undefined)
-		state.user.publicToken = action.payload.publicToken;
+	if (action.payload.bankConnected !== undefined)
+		state.user.bankConnected = action.payload.bankConnected;
 };
 
 export const setPageStyleReducer = (

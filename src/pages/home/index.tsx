@@ -26,6 +26,7 @@ import Account from "@/components/home/account/Account";
 import EditPage from "@/components/home/account/EditPage";
 import Details from "@/components/home/account/Details";
 import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
+import Payments from "@/components/home/payments/Payments";
 
 export enum Tab {
 	customise,
@@ -64,7 +65,7 @@ function HomePage() {
 
 	if (user?.firstName === null || user?.lastName === null)
 		return <InputDetails />;
-	else if (user?.publicToken === null) {
+	else if (!user?.bankConnected) {
 		return <ConnectBank token={linkToken} />;
 	} else {
 		return (
@@ -104,7 +105,7 @@ function HomePage() {
 						/>
 					</div>
 					<Margin height={25} />
-					{tab == Tab.account ? <Account /> : <Details />}
+					{tab == Tab.account ? <Account /> : <Payments />}
 					{/* <Account /> */}
 				</div>
 			</>

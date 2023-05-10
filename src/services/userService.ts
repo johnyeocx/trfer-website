@@ -3,6 +3,7 @@ import axios from "axios";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import { UserFuncs } from "@/models/user/user";
 import { requestInterceptor, responseInterceptor } from "./config";
+import { Payment, PaymentFuncs } from "@/models/user/payments";
 
 axios.interceptors.request.use(requestInterceptor, (error) =>
 	Promise.reject(error)
@@ -77,4 +78,13 @@ export class UserService {
 
 	static getUser = async (uId: any) =>
 		await axios.get(`${endpoint}/api/user/${uId}`);
+
+	static getUserPayments = async () => {
+		const { data } = await axios.get(`${endpoint}/api/user/executed_payments`);
+		let payments: Array<Payment> = [];
+		data.map((payment: any) => {
+			payments.push(PaymentFuncs.fromJson(payment));
+		});
+		return payments;
+	};
 }

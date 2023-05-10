@@ -34,11 +34,11 @@ export class GenFuncs {
 		}
 
 		dispatch(setAuthStatus(AuthStatus.loggedIn));
-
+		console.log("User:", user);
 		if (
 			(user!.firstName == null ||
 				user!.lastName == null ||
-				user!.publicToken == null) &&
+				!user!.bankConnected) &&
 			noDetailsCallback
 		) {
 			await noDetailsCallback();
