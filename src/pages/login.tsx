@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { AuthService } from "@/services/authService";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
 import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/general/Nav/NavBar";
 import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import LoadingPage from "@/components/general/LoadingPage";

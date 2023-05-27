@@ -6,22 +6,24 @@ import MyButton from "@/components/general/MyButton";
 
 import Logo from "../../public/logo.svg";
 import SelectProvider from "@/components/auth/register/01_SelectProvider";
-import InputDetails from "@/components/auth/register/03_InputDetails";
+import InputDetails from "@/components/onboarding/02_SetName";
 import VerifyEmail from "@/components/auth/register/02_VerifyEmail";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useRouter } from "next/router";
-import ConnectBank from "@/components/auth/register/04_ConnectBank";
+import ConnectBank from "@/components/onboarding/04_ConnectBank";
 import { AuthService } from "@/services/authService";
 import { AuthErrFuncs } from "@/models/errors/authErrs";
 import { accessTokenKey, refreshTokenKey } from "@/misc/constants";
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/general/Nav/NavBar";
+import { AuthStatus, setAuthStatus } from "@/redux/appSlice";
 
 export enum RegPage {
 	selectProvider,
 	verifyEmail,
 	inputDetails,
 	connectBank,
+	verifyIdentity,
 }
 
 export type RegDetails = {
@@ -31,6 +33,7 @@ export type RegDetails = {
 
 function Register() {
 	const router = useRouter();
+	const dispatch = useDispatch();
 	const [page, setPage] = useState<RegPage>(RegPage.selectProvider);
 	const [details, setDetails] = useState<RegDetails>({
 		username: "",
@@ -62,8 +65,8 @@ function Register() {
 			setVerifyErrText(AuthErrFuncs.getVerifyReqErrText(error.response.status));
 			return;
 		}
-
-		router.push("/home");
+		dispatch(setAuthStatus(AuthStatus.loggedIn));
+		router.push("/onboarding");
 	};
 
 	return (

@@ -1,0 +1,144 @@
+@import '../config';
+@import './landingConfig';
+
+.container4 {
+    width: 100vw;
+    max-width: $containerMaxWidth;
+    display: flex;
+    position: relative;
+    z-index: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-start;
+    margin-top: 50px;
+}
+
+.title {
+    font-size: $header4;
+
+    @media (max-width: $bp-mobile) {
+        font-size: $header5;
+    }
+}
+
+
+.control {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    width: fit-content;
+    height: 50px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    height: 50px;
+    transition: 0.2s;
+    color: #888;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+    font-size: $para4;
+
+    @media (max-width: $bp-mobile) {
+        font-size: $para5Half;
+        margin-right: 30px;
+    }
+
+    @media (max-width: 380px) {
+        font-size: $para5;
+        margin-right: 15px;
+    }
+
+    .icon {
+        margin-right: 10px;
+
+        @media (max-width: $bp-mobile) {
+            margin-right: 5px;
+        }
+    }
+    
+}
+
+.selectedTab {
+    color: black;
+    border-bottom: 5px solid rgb(0, 140, 255);
+}
+
+.content {
+    height: 120px;
+    @include flexCenter(column);
+
+    p {
+        font-weight: 500;
+        text-align: center;
+        padding: 0px 50px;
+
+        @media (max-width: $bp-mobile) {
+            font-size: $para5Half;
+        }
+    }
+}
+
+$width: 892px;
+$height: 550px;
+
+.imgContainer {
+    position: relative;
+    // margin-left: 10px;
+    width: $width;
+    height: $height;
+    transform-origin: top;
+    background-color: transparent;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    @media (max-width: $bp-desktop-thin) {
+        width: $width * 0.9;
+        height: $height * 0.9;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: $width * 0.68;
+        height: $height * 0.68;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: $width * 0.5;
+        height: $height * 0.5;
+    }
+
+    @media (max-width: 480px) {
+        width: $width * 0.4;
+        height: $height * 0.4;
+    }
+
+    @media (max-width: 380px) {
+        width: $width * 0.35;
+        height: $height * 0.35;
+    }
+}
+
+.contentContainer {
+    max-width: 800px;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    opacity: 1;
+
+    animation: fade 0.2s linear;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade {
+    0% { 
+        opacity: 0;  
+    }
+    100% { 
+        opacity: 1;
+    }
+}

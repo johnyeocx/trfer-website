@@ -6,11 +6,11 @@
     @include flexCenter(row);
     justify-content: space-between;
     align-items: center;
-    padding-left: 30px;
-    padding-right: 15px;
+    padding-left: $horizontalPadding;
+    padding-right: $horizontalPadding;
     z-index: 10;
-    // box-shadow: rgba(138, 138, 138, 0.1) 0px 4px 4px;
 }
+
 
 .logoContainer {
     font-size: $para2;

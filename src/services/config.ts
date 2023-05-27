@@ -19,7 +19,6 @@ export const requestInterceptor = async (config: any) => {
 export const responseInterceptor = async (error: AxiosError) => {
 	const { config, response }: any = error;
 
-	console.log(config);
 	const refreshCondition =
 		config.withCredentials !== false &&
 		response.status === 401 &&

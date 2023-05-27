@@ -14,4 +14,12 @@ axios.interceptors.response.use((response) => {
 export class BankingService {
 	static getAuthLinkToken = async () =>
 		await axios.get(`${endpoint}/api/banking/get_auth_link_token`);
+
+	static createAccessToken = async (publicToken: string) =>
+		await axios.post(`${endpoint}/api/banking/create_access_token`, {
+			public_token: publicToken,
+		});
+
+	static createRecipientId = async () =>
+		await axios.post(`${endpoint}/api/banking/create_recipient_id`);
 }

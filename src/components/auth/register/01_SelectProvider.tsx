@@ -1,5 +1,5 @@
 import Margin from "@/components/general/margin";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 import styles from "../../../styles/Auth/Register.module.scss";
 import GoogleSigninButton from "./SelectProvider/googleSigninButton";
@@ -93,8 +93,8 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 			);
 			localStorage.setItem(accessTokenKey, data.access_token);
 			localStorage.setItem(refreshTokenKey, data.refresh_token);
-			setAuthStatus(AuthStatus.loggedIn);
-			router.push("/home");
+			dispatch(setAuthStatus(AuthStatus.loggedIn));
+			router.push("/onboarding");
 		} catch (error: any) {
 			dispatch(setPageLoading(false));
 			await signOut(auth);
@@ -113,6 +113,10 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 			return;
 		}
 	};
+
+	useEffect(() => {
+		setEnabled(isExtEnabled(details));
+	}, []);
 
 	return (
 		<>
@@ -144,7 +148,10 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 				type="text"
 				placeholder="Email"
 				value={details.email}
-				onChange={(email) => setDetails({ ...details, email })}
+				onChange={(email) => {
+					setExtEnabled(isExtEnabled(details));
+					setDetails({ ...details, email });
+				}}
 			/>
 			<Margin height={25} />
 
@@ -152,7 +159,7 @@ function SelectProvider({ details, setDetails, setPage }: SelectProviderProps) {
 				onClick={nextClicked}
 				text="Sign up with email"
 				loading={loading}
-				enabled={enabled}
+				// enabled={enabled}
 			/>
 			<Margin height={15} />
 			<button className={styles.bottomText} onClick={() => navToLogin()}>

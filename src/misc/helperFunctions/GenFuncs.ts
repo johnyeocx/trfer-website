@@ -3,6 +3,11 @@ import { UserService } from "@/services/userService";
 import { format } from "date-fns";
 import Compressor from "compressorjs";
 import { AuthStatus, setAuthStatus } from "@/redux/appSlice";
+import { ServiceService } from "@/services/serviceService";
+import { setServiceTemplates } from "@/redux/service/serviceSlice";
+import { TemplateFuncs } from "@/models/service/ServiceTemplate";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 export class GenFuncs {
 	static dateString1 = (date: Date): string => {
@@ -34,19 +39,38 @@ export class GenFuncs {
 		}
 
 		dispatch(setAuthStatus(AuthStatus.loggedIn));
-		console.log("User:", user);
+		dispatch(setUser(user));
+		dispatch(setPageTheme({ pageTheme: user!.pageTheme }));
+
 		if (
 			(user!.firstName == null ||
 				user!.lastName == null ||
-				!user!.bankConnected) &&
+				!user!.accessTokenCreated ||
+				!user!.persApproved) &&
 			noDetailsCallback
 		) {
-			await noDetailsCallback();
-			// return;
+			await noDetailsCallback(user);
+			return false;
 		}
 
-		dispatch(setUser(user));
-		dispatch(setPageTheme({ pageTheme: user!.pageTheme }));
+		return true;
+	};
+
+	static initServices = async (dispatch: any, router: any) => {
+		try {
+			const { data } = await ServiceService.getServiceTemplates();
+			let templatesJson = data.templates;
+			let templates = [];
+			for (let i = 0; i < templatesJson.length; i++) {
+				templates.push(TemplateFuncs.fromJson(templatesJson[i]));
+			}
+			console.log("Service templates:", templates);
+			dispatch(setServiceTemplates(templates));
+		} catch (error) {
+			return false;
+		}
+
+		return true;
 	};
 
 	static handleProfileImgChange = (e: any, callback: any) => {
@@ -65,5 +89,9 @@ export class GenFuncs {
 				},
 			});
 		}
+	};
+
+	static floatToStr = (priceFloat: number): string => {
+		return `£${priceFloat.toFixed(2)} GBP`;
 	};
 }

@@ -35,7 +35,7 @@ $textfieldHorizPadding: 20px;
         border: none;
         position: absolute;
         font-family: $primary-font;
-        font-size: calc($para4Half - 2px);
+        font-size: calc($para5Half);
         left: $textfieldHorizPadding;
         height: $containerHeight;
         top: 0.3rem;
@@ -62,7 +62,7 @@ $textfieldHorizPadding: 20px;
         left: $textfieldHorizPadding;
         height: $containerHeight;
 
-        font-size: $para4;
+        font-size: $para5Half;
         white-space: nowrap;
         color: $placeholderColor;
         transform: translate(0, 0);

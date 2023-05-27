@@ -6,10 +6,11 @@ export enum AuthStatus {
 }
 
 export enum AppTab {
-	card = "card",
-	explore = "explore",
-	home = "home",
+	account = "home",
+	services = "services",
+	transactions = "transactions",
 }
+
 // create a slice
 export const AppSlice = createSlice({
 	name: "auth",
@@ -18,8 +19,13 @@ export const AppSlice = createSlice({
 		showLoginModal: false,
 		showRegisterModal: false,
 		showProductModal: false,
-		tab: AppTab.explore,
+		tab: null,
 		loading: false,
+		errModal: {
+			show: false,
+			title: "",
+			msg: "",
+		},
 	},
 
 	reducers: {
@@ -43,6 +49,10 @@ export const AppSlice = createSlice({
 		setPageLoading(state, action) {
 			state.loading = action.payload;
 		},
+
+		setErrModal(state, action) {
+			state.errModal = action.payload;
+		},
 	},
 });
 
@@ -53,5 +63,6 @@ export const {
 	setAppTab,
 	setShowProductModal,
 	setPageLoading,
+	setErrModal,
 } = AppSlice.actions;
 export default AppSlice.reducer;

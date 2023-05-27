@@ -10,15 +10,17 @@ type AmountTextFieldProps = {
 	bgColor?: string;
 	placeholderColor?: string;
 	textColor?: string;
+	placeholder?: string;
 };
-function AuthTextField({
+function AmountTextField({
 	value,
 	onChange,
 	error,
 	scale,
-	bgColor = "#FAFAFA",
+	bgColor,
 	placeholderColor = "#8F8F8F",
 	textColor = "black",
+	placeholder,
 }: AmountTextFieldProps) {
 	const [focused, setFocused] = useState(false);
 
@@ -33,7 +35,7 @@ function AuthTextField({
 				transformOrigin: "left",
 				transform: `scale(${scale})`,
 				width: `${width()}%`,
-				backgroundColor: bgColor,
+				backgroundColor: bgColor == null ? "" : bgColor,
 			}}
 		>
 			<label className={styles.inputContainer}>
@@ -87,11 +89,11 @@ function AuthTextField({
 						color: placeholderColor,
 					}}
 				>
-					Amount
+					{placeholder == null ? "Amount" : placeholder}
 				</span>
 			</label>
 		</div>
 	);
 }
 
-export default AuthTextField;
+export default AmountTextField;

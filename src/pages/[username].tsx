@@ -9,9 +9,9 @@ import Image from "next/image";
 import Margin from "@/components/general/margin";
 import AuthTextField from "@/components/auth/authTextField";
 import AmountTextField from "@/components/user/amountTextField";
-import NoteTextField from "@/components/user/noteTextField";
+import NoteTextField from "@/components/user/PaymentTextField";
 import MyButton from "@/components/general/MyButton";
-import { PaymentService } from "@/services/transferService";
+import { PaymentService } from "@/services/paymentService";
 import { PlaidLinkOptions, usePlaidLink } from "react-plaid-link";
 import { PageTheme, themeColors } from "@/models/page_themes/PageThemes";
 
@@ -166,14 +166,14 @@ function UserPage() {
 					textColor={colors.inputTextColor}
 				/>
 				<Margin height={20} />
-				<NoteTextField
+				{/* <NoteTextField
 					value={details.note}
 					onChange={(val) => setDetails({ ...details, note: val })}
 					placeholder="Note"
 					bgColor={colors.inputBgColor}
 					placeholderColor={colors.inputPlaceholderColor}
 					textColor={colors.inputTextColor}
-				/>
+				/> */}
 				<Margin height={30} />
 				<MyButton
 					text="Trf Now"

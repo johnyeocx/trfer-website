@@ -1,0 +1,137 @@
+@import '../config';
+@import './landingConfig';
+
+.background {
+    background-color: #ffeeee;
+    width: 100vw; 
+    margin-top: 50px;
+    @include flexCenter(row);
+    
+    @media (max-width: $bp-tablet) {
+        padding: 0px 30px;
+    }
+}
+
+.container5 {
+    width: 100vw;
+    max-width: 1000px;
+    margin: 50px 0px;
+    display: flex;
+    position: relative;
+    z-index: 0;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left {
+    font-size: $para1;
+    font-weight: bold;
+    width: 100%;
+    padding-right: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+
+    @media (max-width: $bp-tablet) {
+        font-size: $para2;
+    }
+
+    @media (max-width: $bp-mobile) {
+        font-size: $para3Half;
+    }
+
+
+    .word1 {
+        color: #1F79FF;
+    }
+
+    .word2 {
+        color: #FF688B;
+    }
+}
+
+.right {
+    width: 100%;
+    @include flexCenter(column);
+}
+
+.inputTitle {
+    font-size: $para2;
+    font-weight: 500;
+    text-align: center;
+
+    @media (max-width: $bp-tablet) {
+        font-size: $para3;
+    }
+
+    @media (max-width: $bp-mobile) {
+        font-size: $para4Half;
+    }
+}
+
+$inputBorderRadius: 5px;
+$inputHeight: 55px;
+$inputWidth: 61%;
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: $inputWidth;
+
+    @media (max-width: $bp-desktop-thin) {
+        width: 65%;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: 73%;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: 80%;
+    }
+
+    .input {
+        font-family: $primary-font;
+        width: 80%;
+        height: $inputHeight;
+        font-size: $para4;
+        margin-right: 12px;
+        border-radius: $inputBorderRadius;
+        // background-color: transparent;
+        border: 1px solid #CCC;
+        
+        
+        &::placeholder {
+            color: #444;
+        }
+
+        &:focus {
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+        }
+    }
+
+    .sendBtn {
+        @include flexCenter(row);
+        align-items: center;
+        border-radius: $inputBorderRadius;
+        height: calc($inputHeight - 1.5px);
+        width: 200px;
+        background-color: #444;
+        color: white;
+        font-size: $para4;
+        font-weight: bold;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: black;
+        }
+
+        .icon {
+            margin-top: 1.5px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: $bp-mobile) {
+            width: 200px;
+        }
+    }
+}

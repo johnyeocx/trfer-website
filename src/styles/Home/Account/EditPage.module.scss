@@ -12,7 +12,7 @@
 .colorSelectionContainer {
     // background-color: black;
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     flex-wrap: nowrap;
     padding: 15px 5px;
 }
@@ -70,6 +70,7 @@ $colorHeight: 25px;
     width: 100%;
     padding: 30px 0px;
     @include flexCenter(row);
+    justify-content: flex-start;
 }
 
 $ratio: 0.8;

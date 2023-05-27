@@ -1,0 +1,34 @@
+@import '../config';
+
+.container {
+    z-index: 1;
+    // background-color: blue;
+    // padding: 50px 0px;
+}
+
+.userDetailsContainer {
+    @include flexCenter(row);
+    justify-content: center;
+
+    .name {
+        font-size: $para5Half;
+        font-weight: 600;
+    }
+}
+
+.productDetails {
+    @include flexCenter(column);
+
+    .serviceName {
+        font-size: $para4;
+        font-weight: bold;
+    }
+
+    .price {
+        font-size: $para4;
+    }
+}
+
+.form {
+    width: 100%;
+}

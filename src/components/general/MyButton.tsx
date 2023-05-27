@@ -10,28 +10,31 @@ type MyButtonProps = {
 	scale?: number;
 	bgColor?: string;
 	textColor?: string;
+	width?: string;
 };
 function MyButton({
 	text,
 	loading,
 	onClick,
 	enabled = true,
-	scale = 1,
-	bgColor = "black",
+	scale,
+	bgColor,
 	textColor = "white",
+	width = "100%",
 }: MyButtonProps) {
 	return (
 		<button
-			style={{
-				transformOrigin: "left",
-				transform: `scale(${scale})`,
-				width: `${GenFuncs.scaledWidth(scale!)}%`,
-				backgroundColor: bgColor,
-				color: textColor,
-			}}
 			className={`${styles.buttonContainer} ${
 				enabled !== null && !enabled && styles.disabledContainer
 			}`}
+			style={{
+				transformOrigin: "left",
+				transform: scale != null ? `scale(${scale})` : "1",
+				width: scale != null ? `${GenFuncs.scaledWidth(scale!)}%` : width,
+				// width: width,
+				backgroundColor: bgColor != null ? bgColor : "#111",
+				color: textColor,
+			}}
 			onClick={() => {
 				if (!loading && enabled) onClick();
 			}}

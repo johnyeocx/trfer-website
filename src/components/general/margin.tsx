@@ -10,7 +10,8 @@ function Margin({ width, height }: MarginProps) {
 		<div
 			style={{
 				width: width,
-				height: height,
+				maxHeight: height,
+				minHeight: height,
 			}}
 		></div>
 	);

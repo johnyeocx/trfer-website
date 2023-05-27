@@ -23,7 +23,7 @@ function Details({}: DetailsProps) {
 				<div className={styles.imgContainer}>
 					<Image
 						alt="User Image"
-						src={UserFuncs.imagePath(user!)}
+						src={UserFuncs.imagePath(user?.id!)}
 						fill
 						style={{ objectFit: "cover" }}
 						className={styles.image}

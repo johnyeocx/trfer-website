@@ -1,0 +1,68 @@
+@import '../../Create.module.scss';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    @include flexCenter(row);
+}
+
+.description {
+    font-size: $para5;
+    font-weight: 500;
+}
+
+.modal {
+    width: 400px;
+    height: fit-content;
+    background-color: white;
+    // border-radius: 15px;
+    box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    .title {
+        font-size: $para3;
+    }
+    .icon {
+        font-size: $para3;
+    }
+}
+
+.inputTitle {
+    font-size: $para5;
+    color: #555;
+    padding-left: 2.5px;
+    margin-bottom: 5px;
+}
+
+.detailInput {
+    border: 1.5px solid #CCC;
+    font-family: $primary-font;
+    border-radius: 5px;
+    // font-size: $para5Half;
+    font-weight: 500;
+    // margin: 10px 0px;
+}
+
+.btnContainer {
+
+    @include flexCenter(row);
+}
+
+.row {
+    @include flexCenter(row);
+
+}

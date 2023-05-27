@@ -1,0 +1,13 @@
+@import '../config';
+
+.pageContainer {
+    width: 100vw;
+
+    // overflow-x: hidden;
+}
+
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}

@@ -2,21 +2,20 @@
 @import '../authConfig';
 @import '../configs/buttonConfig';
 
+$buttonHeight: 45px;
 
 .buttonContainer {
-    background-color: $buttonBgColor;
+    // background-color: $buttonBgColor;
     height: $buttonHeight;
     width: 100%;
     border-radius: 30px;
     color: white;
-    font-size: $para4;
+    font-size: $para5Half;
     font-weight: 700;
     @include flexCenter(row);
+    transition: 0.2s;
 
 
-    // &:active {
-    //     background-color: #444;
-    // }
 }
 
 .disabledContainer {

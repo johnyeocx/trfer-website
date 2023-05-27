@@ -4,6 +4,7 @@ import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import { UserFuncs } from "@/models/user/user";
 import { requestInterceptor, responseInterceptor } from "./config";
 import { Payment, PaymentFuncs } from "@/models/user/payments";
+import { Address } from "@/models/user/Address";
 
 axios.interceptors.request.use(requestInterceptor, (error) =>
 	Promise.reject(error)
@@ -30,10 +31,9 @@ export class UserService {
 			email: email,
 		});
 
-	static setNameAndPhoto = async (firstName: string, lastName: string) =>
-		await axios.post(`${endpoint}/api/user/name_and_photo`, {
-			first_name: firstName,
-			last_name: lastName,
+	static setAccountDetails = async (accountName: string) =>
+		await axios.post(`${endpoint}/api/user/account_details`, {
+			account_name: accountName,
 		});
 
 	static setProfileImage = async () =>
@@ -43,6 +43,14 @@ export class UserService {
 		await axios.patch(`${endpoint}/api/user/name`, {
 			first_name: firstName,
 			last_name: lastName,
+		});
+
+	static setAddress = async (address: Address) =>
+		await axios.patch(`${endpoint}/api/user/address`, {
+			line1: address.line1,
+			line2: address.line2,
+			city: address.city,
+			postal_code: address.postalCode,
 		});
 
 	static setUsername = async (username: string) =>

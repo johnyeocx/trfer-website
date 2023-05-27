@@ -1,0 +1,26 @@
+@import '../config';
+@import './paymentConfig';
+
+.container {
+    width: 100%;
+}
+
+.mRow {
+    @include flexCenter(row);
+    width: 100%;
+}
+
+.ccContainer {
+    width: 30%;
+
+    .prefix {
+        // margin-bottom: 1px;
+        color: $placeholderColor;
+        margin-right: 3px;
+        margin-bottom: 0.7px;
+    }
+}
+
+.numberContainer {
+    width: 70%;
+}

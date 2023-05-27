@@ -6,7 +6,7 @@ import { UserFuncs } from "@/models/user/user";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import AmountTextField from "@/components/user/amountTextField";
-import NoteTextField from "@/components/user/noteTextField";
+import NoteTextField from "@/components/user/PaymentTextField";
 import MyButton from "@/components/general/MyButton";
 import { PageTheme, themeColors } from "@/models/page_themes/PageThemes";
 import { setPageTheme } from "@/redux/user/userSlice";
@@ -61,7 +61,7 @@ function EditPage() {
 							<div className={styles.imgContainer}>
 								<Image
 									alt=""
-									src={UserFuncs.imagePath(user!)}
+									src={UserFuncs.imagePath(user!.id!)}
 									fill
 									className={styles.img}
 									style={{ objectFit: "cover" }}
@@ -89,7 +89,7 @@ function EditPage() {
 						</div>
 
 						<Margin height={10} />
-						<AmountTextField
+						{/* <AmountTextField
 							height={20}
 							scale={0.8}
 							value={testDetails.amount}
@@ -110,7 +110,7 @@ function EditPage() {
 							bgColor={colors.inputBgColor}
 							placeholderColor={colors.inputPlaceholderColor}
 							textColor={colors.inputTextColor}
-						/>
+						/> */}
 						<Margin height={10} />
 						<MyButton
 							scale={0.8}

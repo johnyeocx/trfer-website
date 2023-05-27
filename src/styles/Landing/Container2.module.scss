@@ -1,0 +1,122 @@
+@import '../config';
+@import './landingConfig';
+
+.overallBackground {
+    width: 100vw;
+    @include flexCenter(row);
+    padding: 0px $horizontalPadding;
+    margin-top: 100px;
+
+    @media (max-width: $bp-tablet) {
+        padding: 0px 30px;
+        margin-top: 50px;
+    }
+}
+
+.container2 {
+    width: 100vw;
+    max-width: $containerMaxWidth;
+    display: flex;
+
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        height: fit-content;
+        max-width: 500px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        // background-color: blue;
+    }
+}
+
+
+
+
+$containerHeight: 600px;
+.left {
+    width: 55%;
+    padding-right: 50px;
+    display: flex;
+    height: calc($containerHeight - 50px);
+    flex-direction: column;
+    justify-content: center;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        padding-right: 0px;
+        height: fit-content;
+    }
+
+    .title {
+        font-size: $header5;
+    }
+
+    .subTitle {
+        font-size: $para4;
+        font-weight: 500;
+    }
+}
+
+.right {
+    width: 45%;
+    @include flexCenter(row);
+    align-items: flex-start;
+    
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        margin-top: 70px;
+    }
+}
+
+.imgContainer {
+    position: relative;
+    width: 300px;
+    height: $containerHeight;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+$blue: #3888ff;
+.pointContainer {
+    display: flex;
+    align-items: center;
+
+    .iconContainer {
+        max-width: 120px;
+        min-width: 120px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 85px;
+        color: $blue;
+    }
+
+    .textContainer {
+        .title {
+            font-size: $para3Half;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: darken($blue, 5%);
+        }
+
+        .description {
+            font-size: $para4;
+            font-weight: 500;
+        }
+    }
+}
+
+$red: #ff829f;
+.pointContainer2 {
+    .iconContainer {
+        justify-content: flex-end;
+        color: $red;
+        transform: rotateY(180deg);
+    }
+
+    .textContainer {
+        .title {
+            color: darken($red, 5%);
+        }
+    }
+}

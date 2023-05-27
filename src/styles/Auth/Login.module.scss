@@ -15,11 +15,6 @@ $textPadding: 10px;
     align-items: center;
     // background-color: rgba(0, 0, 0, 0.3);
     min-height: 500px;
-
-    @media (max-width: $breakpoint-tablet) {
-        min-height: none;
-        
-    }
 }
 
 
@@ -34,12 +29,6 @@ $textPadding: 10px;
     padding: 30px $horizontalPadding;
     position: relative;
     border-radius: 20px;
-
-    @media (max-width: $breakpoint-tablet) {
-        border-radius: 0px;
-        max-height: none;
-
-    }
 }
 
 .headerText {

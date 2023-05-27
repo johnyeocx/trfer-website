@@ -6,7 +6,7 @@ import { GenFuncs } from "@/misc/helperFunctions/GenFuncs";
 
 import { RootState } from "@/redux/store";
 
-import NavBar from "@/components/navbar";
+import NavBar from "@/components/general/Nav/NavBar";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
@@ -172,7 +172,7 @@ function Account() {
 							src={
 								newImg != null
 									? URL.createObjectURL(newImg)
-									: `${UserFuncs.imagePath(user!)}?timestamp=${Date.now()}`
+									: `${UserFuncs.imagePath(user!.id!)}?timestamp=${Date.now()}`
 							}
 							fill
 							style={{ objectFit: "cover" }}

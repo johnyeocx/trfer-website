@@ -1,11 +1,26 @@
 
 $primary-font: "CircularStd";
 
-$breakpoint-mobile: 510px;
-$breakpoint-tablet: 768px;
-$breakpoint-laptop: 950px;
-$breakpoint-desktop: 1025px;
-$breakpoint-thin: 380px;
+// $breakpoint-mobile: 510px;
+// $breakpoint-tablet: 768px;
+// $breakpoint-laptop: 950px;
+// $breakpoint-desktop: 1025px;
+// $breakpoint-thin: 380px;
+
+$bp-desktop: 1366px;
+$bp-desktop-thin: 1000px;
+$bp-tablet: 800px;
+$bp-mobile: 600px;
+
+
+
+
+// 1920×1080
+// 1366×768
+// 1536×864
+// 1280×720
+// 1440×900
+// 1600×900
 
 // FONT SIZES
 $header1: 2.5rem;
@@ -15,6 +30,7 @@ $header4: 1.9rem;
 $header5: 1.7rem;
 
 $para1: 1.5rem;
+$para2Half: 1.4rem;
 $para2: 1.3rem;
 $para3Half: 1.2rem;
 $para3: 1.1rem;
@@ -26,8 +42,9 @@ $para5: 0.7rem;
 
 
 $navHeight: 70px;
+$tabHeight: 50px;
 $placeholderColor: #888;
-$horizontalPadding: 30px;
+$horizontalPadding: 40px;
 
 
 // COLORS

@@ -146,6 +146,9 @@ input {
   font-family: $primary-font;
   -webkit-tap-highlight-color: transparent;
 
+  &:focus {
+    outline: none;
+  }
 }
 
 h1 {
@@ -156,6 +159,27 @@ h1 {
   html {
     color-scheme: dark;
   }
+}
+
+// /* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CCC;
+  transition: 0.1s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #AAA;
 }
 
 

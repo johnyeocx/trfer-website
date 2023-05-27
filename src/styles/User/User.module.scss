@@ -9,11 +9,6 @@
     background-color: white;
     min-height: 500px;
     padding-bottom: 20px;
-
-    @media (max-width: $breakpoint-tablet) {
-        min-height: none;
-        // background-color: $bgColor;
-    }
 }
 
 .headerContainer {
@@ -33,11 +28,6 @@
     align-items: flex-start;
     padding: 20px $horizontalPadding;
     border-radius: 20px;
-
-    @media (max-width: $breakpoint-tablet) {
-        height: 90vh;
-        max-height: none;
-    }
 }
 
 .row1 {

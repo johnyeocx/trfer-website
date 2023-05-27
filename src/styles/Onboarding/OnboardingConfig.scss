@@ -1,0 +1,39 @@
+@import '../config';
+
+@mixin mainContainer{
+    
+    height: 550px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
+    position: relative;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    padding: 20px $horizontalPadding;
+    padding-top: 50px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+@mixin backBtn {
+    position: absolute;
+    top: 45px;
+    // background-color: blue;
+    left: $horizontalPadding;
+}
+
+@mixin btnContainer {
+    width: calc(100% - 2 * $horizontalPadding);
+    position: absolute;
+    bottom: 30px;
+    // background-color: blue;
+    @include flexCenter(row);
+}
+
+@mixin obErrText {
+    width: 100%;
+    // padding-right: 30px;
+    font-size: $para5;
+    color: $errColor;
+    text-align: center;
+}

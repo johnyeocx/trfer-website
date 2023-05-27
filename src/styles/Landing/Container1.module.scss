@@ -1,0 +1,200 @@
+@import '../config';
+@import './landingConfig';
+
+.overallBackground {
+    width: 100vw;
+    @include flexCenter(row);
+    margin-top: 20px;
+    padding: 0px $horizontalPadding;
+
+    @media (max-width: $bp-tablet) {
+        padding: 0px;
+    }
+}
+
+.container1 {
+    width: 100vw;
+    max-width: $containerMaxWidth;
+    display: flex;
+
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+        height: fit-content;
+        max-width: 500px;
+    }
+}
+
+  
+.left {
+
+    width: 50%;
+    @include flexCenter(column);
+    align-items: flex-start;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        align-items: center;
+    }
+
+    .em1 {
+        font-weight: bolder;
+        position: relative;
+    
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 164px;
+            height: 18px;
+            background-color: rgba(0, 119, 255, 0.5);
+
+            @media (max-width: $bp-desktop-thin) {
+                width: 125px;
+            }
+        }
+    }
+
+    .em2 {
+        &::after {
+            width: 138px;
+            background-color: rgba(255, 121, 153, 0.5);
+
+            @media (max-width: $bp-desktop-thin) {
+                width: 100px;
+            }
+        }
+    }
+
+    .text {
+        font-size: $header5;
+        font-weight: 500;   
+
+        @media (max-width: $bp-desktop-thin) {
+            font-size: $para1;
+        }    
+
+        @media (max-width: $bp-tablet) {
+            text-align: center;
+            font-size: $header5;
+        }
+    }
+}
+
+.right {
+    @include flexCenter(row);
+    justify-content: flex-end;
+    width: 50%;
+
+    @media (max-width: $bp-tablet) {
+        margin-top: 50px;
+        width: 100%;
+    }   
+
+    .background {
+        position: relative;
+        background: linear-gradient(107deg, rgba(2,0,36,1) 0%, rgb(255, 221, 221) 0%, rgb(201, 243, 255) 100%);
+        width: 450px;
+        height: 550px;
+        padding-top: 15px;
+        @include flexCenter(row);
+        overflow: visible;
+
+        @media (max-width: $bp-desktop-thin) {
+            width: 370px;
+            height: 480px;
+            
+        }  
+        
+        @media (max-width: $bp-tablet) {
+            width: 100%;
+        }   
+    }
+  
+    .imgContainer {
+        position: relative;
+        min-width: 450px;
+        height: 100%;
+        border-radius: 15px;
+        overflow: hidden;
+        @include flexCenter(column);
+    }
+}
+
+
+$inputBorderRadius: 5px;
+$inputHeight: 60px;
+$inputWidth: 80%;
+$fontSize: calc($para4 - 1px);
+$btnWidth: 130px;
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: $inputWidth;
+    border: 1.5px solid #3b3b3b;
+    border-radius: $inputBorderRadius;
+    position: relative;
+    height: $inputHeight;
+    overflow: hidden;
+    transition: 0.2s;
+
+    @media (max-width: $bp-tablet) {
+        width: 80%;
+        max-width: 400px;
+    }   
+    
+
+    input {
+        font-family: $primary-font;
+        width: 100%;
+        height: $inputHeight;
+        font-size: $fontSize;
+        margin-right: 5px;
+        border: none;
+        border-radius: 100px;
+        transition: 0.2s;
+        background-color: transparent;
+        padding: 0px 20px;
+
+        &::placeholder {
+            color: #444;
+        }
+    }
+
+    .sendBtn {
+        @include flexCenter(row);
+        align-items: center;
+        height: calc($inputHeight - 3px);
+        width: $btnWidth;
+        background-color: #333;
+        color: white;
+        font-size: $fontSize;
+        font-weight: bold;
+        transition: 0.2s;
+        border-radius: 0px;
+        position: absolute;
+        right: 0px;
+
+        &:hover {
+            background-color: black;
+        }
+
+        .icon {
+            margin-top: 1.5px;
+            margin-left: 10px;
+        }
+
+        @media (max-width: $bp-desktop-thin) {
+            width: 110px;
+        } 
+
+        @media (max-width: $bp-mobile) {
+            width: 100px;
+        }  
+    }
+}
+
+.focusedContainer {
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}

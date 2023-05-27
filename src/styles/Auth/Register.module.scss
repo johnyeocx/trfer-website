@@ -12,13 +12,6 @@
     justify-content: center;
     align-items: center;
     background-color: white;
-    // height: calc(100vh - $navHeight);
-    // min-height: 500px;
-
-    @media (max-width: $breakpoint-tablet) {
-        min-height: none;
-        // background-color: $bgColor;
-    }
 }
 
 
@@ -26,17 +19,11 @@
     height: 80vh;
     width: 100%;
     max-width: 500px;
-    // max-height: 700px;
     min-height: 500px;
     @include flexCenter(column);
     align-items: flex-start;
     padding: 20px $horizontalPadding;
     border-radius: 20px;
-
-    @media (max-width: $breakpoint-tablet) {
-        border-radius: 0px;
-        max-height: none;
-    }
 }
 
 .headerText {

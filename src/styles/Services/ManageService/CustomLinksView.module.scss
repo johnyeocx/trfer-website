@@ -1,0 +1,155 @@
+@import '../../config';
+
+.topRow {
+    @include flexCenter(row);
+    align-items: flex-start;
+    justify-content: space-between;
+
+    p {
+        width: 70%;
+    }
+
+}
+
+
+.contentContainer {
+    padding: 10px 0px 30px 0px;
+}
+
+
+.introText {
+    font-size: calc($para5 + 0.5px);
+    font-weight: 500;
+    width: 550px;
+}
+
+$minHeight: 300px;
+$headerRowHeight: 40px;
+
+.container {
+    // width: fit-content;
+    width: 100%;
+    min-width: 600px;
+    // max-width: 1000px;
+    min-height: $minHeight;
+    max-height: 500px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    overflow: auto;
+}
+
+.emptyText {
+    width: 100%;
+    height: calc($minHeight - $headerRowHeight);
+    @include flexCenter(row);
+    font-size: $para4;
+    color: #AAA;
+}
+
+
+.table {
+    // border: 2px solid forestgreen;
+    // width: 800px;
+    // height: 200px;
+}
+
+.headerRow {
+    background-color: #EEE;
+    width: 100%;
+    height: $headerRowHeight;
+    
+    th {
+        outline: none;    
+        white-space: nowrap;
+        text-align: start;
+        // padding: 0px 50px;
+        padding-left: 10px;
+        padding-right: 50px;
+        font-size: $para5;
+
+        &:nth-last-child(2) {
+            // width: 200px;
+            // background-color: blue;
+            text-align: end;
+            padding-left: 30px;
+            padding-right: 10px;
+            width: 1000px;
+        }
+
+        &:nth-last-child(1) {
+            padding: 0px 20px;
+        }
+    }
+
+    
+}
+
+.dataRow {
+    height: 30px;
+    transition: 0.15s;
+    cursor: pointer;
+
+
+    td {
+        // background-color: blue;
+        white-space: nowrap;
+        text-align: start;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        font-size: $para5;
+        font-weight: 500;
+        height: 55px;
+
+        &:first-child {
+            // max-width: 180px;
+            // background-color: blue;
+            // text-overflow: ellipsis;
+
+            // overflow: hidden;
+        }
+
+        &:nth-last-child(2) {
+            // width: 200px;
+            // background-color: blue;
+            text-align: end;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 1000px;
+        }
+
+        &:nth-last-child(1) {
+            padding: 0px 20px;
+        }
+    }
+
+}
+
+.dataRowHover {
+    background-color: #EEE;
+
+}
+    
+.td {
+    text-align: start;
+}
+
+.actionCell {
+    @include flexCenter(row);
+}
+$actionDim: 30px;
+.actionContainer {
+    height: $actionDim;
+    width: $actionDim;
+    border-radius: $actionDim / 2;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    @include flexCenter(row);
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .icon {
+        font-size: $para5;
+    }
+}
