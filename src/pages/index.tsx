@@ -48,6 +48,24 @@ export default function Root() {
 	}, [success]);
 
 	const submitClicked = async (email: string) => {
+		if (email == "") {
+			setErrText("Please provide an email");
+			setFailed(true);
+			setTimeout(() => {
+				setFailed(false);
+			}, 5000);
+			return;
+		}
+
+		if (!GenFuncs.isEmailValid(email)) {
+			setErrText("Invalid email provided");
+			setFailed(true);
+			setTimeout(() => {
+				setFailed(false);
+			}, 5000);
+			return;
+		}
+
 		setFailed(false);
 		try {
 			const response = await fetch("/api/submit", {
@@ -63,12 +81,12 @@ export default function Root() {
 
 			if (response.status != 200) throw "Failed";
 			setSuccess(true);
-			setTimeout(() => setSuccess(false), 10000);
+			// setTimeout(() => setSuccess(false), 10000);
 			return;
 		} catch (error) {
 			console.log("failed to submit");
 			setFailed(true);
-			setErrText;
+			setErrText("Something went wrong. Please try again later.");
 
 			setTimeout(() => {
 				setFailed(false);
@@ -84,13 +102,17 @@ export default function Root() {
 			<div className={styles.page}>
 				<Container1
 					errText={errText}
-					submitClicked={submitClicked}
 					failed={failed}
+					submitClicked={submitClicked}
 				/>
 				<Container2 />
 				<Container3 />
 				<Container4 />
-				<Container5 submitClicked={submitClicked} />
+				<Container5
+					submitClicked={submitClicked}
+					errText={errText}
+					failed={failed}
+				/>
 			</div>
 		</>
 	);

@@ -87,8 +87,8 @@ function Container3() {
 					<p className={styles.title}>Amazing analytics</p>
 					<p className={styles.description}>
 						Finding it difficult to determine trends in your business? With our
-						dashboards and analytics, you&apos;ll now know the peaks, troughs,
-						ins and outs of your business.
+						dashboards and analytics, knowing the peaks and troughs of your
+						business is just the beginning.
 					</p>
 				</div>
 			</div>

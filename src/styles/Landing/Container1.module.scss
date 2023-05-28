@@ -59,7 +59,7 @@
     p {
         font-size: $para4Half;
         font-weight: 500;
-        color: #444;
+        color: $secondaryColor;
 
         @media (max-width: $bp-desktop-thin) {
             font-size: $para4Half;

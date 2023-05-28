@@ -72,6 +72,7 @@
     .description {
         max-width: 400px;
         font-weight: 500;
+        color: $secondaryColor;
 
         @media (max-width: $bp-tablet) {
             font-size: $para4;

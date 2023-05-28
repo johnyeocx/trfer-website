@@ -65,11 +65,7 @@ function Container1({ submitClicked, failed, errText }: Container1Props) {
 						</button>
 					</div>
 
-					{failed && (
-						<p className={styles.failedTxt}>
-							Something went wrong. Please try again
-						</p>
-					)}
+					{failed && <p className={styles.failedTxt}>{errText}</p>}
 				</div>
 				<div className={styles.right}>
 					<div className={styles.background}>

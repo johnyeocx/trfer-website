@@ -7,4 +7,5 @@ export const accessTokenKey = "access_token";
 export const refreshTokenKey = "refresh_token";
 
 export const bpMobile = 600;
+export const bpTablet = 800;
 export const bpDesktopThin = 1000;

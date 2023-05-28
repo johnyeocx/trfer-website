@@ -7,8 +7,11 @@ import HowItWorks from "../../../public/images/container2/how_it_works.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faCheck,
+	faLock,
 	faPersonSeatReclined,
+	faVault,
 } from "@fortawesome/pro-solid-svg-icons";
+import { faShieldCheck } from "@fortawesome/pro-regular-svg-icons";
 
 function Container2() {
 	return (
@@ -19,7 +22,7 @@ function Container2() {
 					<Margin height={20} />
 					<p className={styles.subTitle}>
 						With Open Banking, we&apos;ve gotten rid of card networks and
-						payment processors. Say goodbye to high commission rates!
+						payment processors. Fees are now just <b>0.4%</b> per transaction.
 					</p>
 					<Margin height={50} />
 					<div className={styles.pointContainer}>
@@ -38,7 +41,7 @@ function Container2() {
 					<Margin height={50} />
 					<div className={`${styles.pointContainer} ${styles.pointContainer2}`}>
 						<div className={styles.iconContainer}>
-							<FontAwesomeIcon icon={faPersonSeatReclined} />
+							<FontAwesomeIcon icon={faVault} className={styles.icon} />
 						</div>
 						<div className={styles.textContainer}>
 							<p className={styles.title}>Safe and secure</p>

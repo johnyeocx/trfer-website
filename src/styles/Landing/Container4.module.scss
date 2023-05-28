@@ -79,6 +79,8 @@
         text-align: center;
         padding: 0px 50px;
         font-size: $para4Half;
+        
+        
 
         @media (max-width: $bp-mobile) {
             font-size: $para4;
@@ -132,6 +134,7 @@ $height: 550px;
 
     animation: fade 0.2s linear;
     animation-fill-mode: forwards;
+    
 }
 
 

@@ -123,8 +123,8 @@ const TrackingContent = () => {
 		<div className={styles.contentContainer}>
 			<div className={styles.content}>
 				<p>
-					For each service you provide, keep track of who has paid, and which of
-					those payments were from custom links. You can also link the data to
+					Access a suite of analytics to help you make the best decisions for
+					your business. You can also link the data to external tools like
 					Google Sheets.
 				</p>
 			</div>

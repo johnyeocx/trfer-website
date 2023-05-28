@@ -56,7 +56,7 @@ export default async function handler(req: any, res: any) {
 
 		// res.status(400).send();
 		// return;
-		sendEmail();
+		sendEmail(body.email);
 
 		return res.status(200).json({
 			data: response.data,

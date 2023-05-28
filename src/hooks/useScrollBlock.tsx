@@ -5,7 +5,7 @@ export const useScrollBlock = () => {
 	const [scrollBlocked, setScrollBlocked] = useState(false);
 
 	const blockScroll = () => {
-		if (safeDocument != null) {
+		if (safeDocument == null) {
 			return;
 		}
 		const html = safeDocument!.documentElement;
@@ -35,7 +35,7 @@ export const useScrollBlock = () => {
 	};
 
 	const allowScroll = () => {
-		if (safeDocument != null) {
+		if (safeDocument == null) {
 			return;
 		}
 		const html = safeDocument!.documentElement;

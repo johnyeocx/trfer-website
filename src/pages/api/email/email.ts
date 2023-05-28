@@ -19,7 +19,7 @@ var readHTMLFile = function (
 	});
 };
 
-export const sendEmail = async () => {
+export const sendEmail = async (email: string) => {
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
@@ -35,9 +35,9 @@ export const sendEmail = async () => {
 	let htmlToSend = template(replacements);
 
 	const mail_configs = {
-		from: "John Yeo <" + GMAIL_USERNAME + ">",
-		to: "johnyeocx@gmail.com",
-		subject: "Testing",
+		from: "John from trfer.me <" + GMAIL_USERNAME + ">",
+		to: email,
+		subject: "Access to beta version of trfer.me",
 		html: htmlToSend,
 	};
 
