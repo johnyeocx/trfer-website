@@ -6,7 +6,7 @@ export default function Document() {
 			<Head>
 				<meta name="theme-color" content="#FFF" />
 				<title>trfer.me</title>
-				<link rel="shortcut icon" href="/static/favicon.ico" />
+				<link rel="shortcut icon" href="/logo.png" />
 			</Head>
 
 			<body>
