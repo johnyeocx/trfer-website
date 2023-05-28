@@ -32,6 +32,7 @@
     @include flexCenter(column);
     align-items: flex-start;
     padding-bottom: 20px;
+    overflow: hidden;
 
     @media (max-width: $bp-desktop-thin) {
         width: 50%;
@@ -258,3 +259,19 @@ $btnWidth: 130px;
     margin-left: $inputBorderRadius / 2;
     margin-top: 5px;
 }
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeInAnimation 10s ease-in-out forwards;
+}
+

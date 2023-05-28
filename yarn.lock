@@ -5000,7 +5000,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.5.10, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -5521,6 +5521,13 @@ react-redux@^8.0.5:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
+react-reveal@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-reveal/-/react-reveal-1.2.2.tgz#f47fbc44debc4c185ae2163a215a9e822c7adfef"
+  integrity sha512-JCv3fAoU6Z+Lcd8U48bwzm4pMZ79qsedSXYwpwt6lJNtj/v5nKJYZZbw3yhaQPPgYePo3Y0NOCoYOq/jcsisuw==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-router-dom@^6.8.1:
   version "6.8.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.8.1.tgz#7e136b67d9866f55999e9a8482c7008e3c575ac9"
@@ -5540,6 +5547,11 @@ react-script-hook@^1.6.0:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/react-script-hook/-/react-script-hook-1.7.2.tgz#ec130d67f9a25fcde57fbfd1faa87e5b97521948"
   integrity sha512-fhyCEfXb94fag34UPRF0zry1XGwmVY+79iibWwTqAoOiCzYJQOYTiWJ7CnqglA9tMSV8g45cQpHCMcBwr7dwhA==
+
+react-scrollmagic@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-scrollmagic/-/react-scrollmagic-2.3.0.tgz#6434d4d886225c7d96a135dcbcdd582ce78cff6f"
+  integrity sha512-yVw85uENSPow/ZJxZhPR84nZuyQZQNGfOAaL22+xNAhF5qMX2vbHv0Jeurydc9lS+6OocSY+09MHWQ0LESy9Mg==
 
 react@^18.2.0:
   version "18.2.0"
@@ -5731,6 +5743,11 @@ scroll-into-view-if-needed@^3.0.3:
   integrity sha512-t44QCeDKAPf1mtQH3fYpWz8IM/DyvHLjs8wUvvwMYxk5moOqCzrMSxK6HQVD0QVmVjXFavoFIPRVrMuJPKAvtg==
   dependencies:
     compute-scroll-into-view "^3.0.2"
+
+scrollmagic@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.8.tgz#e0d7aff804c393c022fdc0c566f1edce3b4e9ed7"
+  integrity sha512-UYXEGBPVLziovXl3FjHGkY9c4UXKUKopIdXwWR2JapWxCo0U345wYegi7rcsv5vHf/ktc1bSNWy4QRFiV+Yccw==
 
 semver@^5.6.0:
   version "5.7.1"

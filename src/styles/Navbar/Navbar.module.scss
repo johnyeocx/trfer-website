@@ -9,6 +9,11 @@
     padding-left: $horizontalPadding;
     padding-right: $horizontalPadding;
     z-index: 10;
+
+    @media (max-width: $bp-tablet) {
+        padding-left: 30px;
+        
+    }
 }
 
 

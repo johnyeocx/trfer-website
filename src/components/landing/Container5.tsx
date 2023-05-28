@@ -10,10 +10,10 @@ import { bpDesktopThin, bpMobile } from "@/misc/constants";
 import { useWindowSize } from "@/hooks/useWindowResize";
 
 function Container5({ submitClicked, failed, error }: any) {
-	const [email, setEmail] = useState("");
 	const [focused, setFocused] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const { width, height } = useWindowSize();
+	const [email, setEmail] = useState("");
 
 	return (
 		<div className={styles.background}>
@@ -45,7 +45,7 @@ function Container5({ submitClicked, failed, error }: any) {
 						<button
 							onClick={async () => {
 								setLoading(true);
-								await submitClicked(email);
+								await submitClicked(email, setEmail);
 								setLoading(false);
 							}}
 							className={styles.sendBtn}
@@ -53,13 +53,6 @@ function Container5({ submitClicked, failed, error }: any) {
 							{loading ? <LoadingIndicator /> : <>Try it out!</>}
 						</button>
 					</div>
-					{/* <div className={styles.inputContainer}>
-						<Input className={styles.input} placeholder="Email" />
-						<button className={styles.sendBtn}>
-							Request
-							<FontAwesomeIcon icon={faArrowRight} className={styles.icon} />
-						</button>
-					</div> */}
 				</div>
 			</div>
 		</div>

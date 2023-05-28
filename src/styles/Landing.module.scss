@@ -8,3 +8,13 @@
   @include flexCenter(column);
 
 }
+
+.scrollTracker {
+  width: 100vw;
+  background-color: black;
+  height: 0.5rem;
+  position: fixed;
+  inset: 0 0 auto;
+
+  
+}

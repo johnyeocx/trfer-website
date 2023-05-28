@@ -12,6 +12,7 @@ import TemplateView from "../../../public/images/container4/template_view.png";
 import CustomView from "../../../public/images/container4/custom_view.png";
 import TrackingView from "../../../public/images/container4/tracking_view.png";
 import Image from "next/image";
+import Fade from "react-reveal/Fade";
 
 enum FeatureTab {
 	template,
@@ -26,45 +27,50 @@ function Container4() {
 			{/* <h1>Features</h1> */}
 
 			{/* <div className={styles.left}> */}
-			<h1 className={styles.title}>Features</h1>
-			<Margin height={30} />
-			<div className={styles.control}>
-				<button
-					className={`${styles.tab} ${
-						tab == FeatureTab.template && styles.selectedTab
-					}`}
-					onClick={() => setTab(FeatureTab.template)}
-				>
-					<FontAwesomeIcon icon={faFile} className={styles.icon} />
-					<p>Template</p>
-				</button>
-				<button
-					className={`${styles.tab} ${
-						tab == FeatureTab.customLink && styles.selectedTab
-					}`}
-					onClick={() => setTab(FeatureTab.customLink)}
-				>
-					<FontAwesomeIcon icon={faLink} className={styles.icon} />
-					<p>Custom Links</p>
-				</button>
-				<button
-					className={`${styles.tab} ${
-						tab == FeatureTab.tracking && styles.selectedTab
-					}`}
-					onClick={() => setTab(FeatureTab.tracking)}
-				>
-					<FontAwesomeIcon icon={faChartSimple} className={styles.icon} />
-					<p>Tracking</p>
-				</button>
-			</div>
+			<Fade bottom>
+				<h1 className={styles.title}>Features</h1>
+				<Margin height={30} />
+				<div className={styles.control}>
+					<button
+						className={`${styles.tab} ${
+							tab == FeatureTab.template && styles.selectedTab
+						}`}
+						onClick={() => setTab(FeatureTab.template)}
+					>
+						<FontAwesomeIcon icon={faFile} className={styles.icon} />
+						<p>Template</p>
+					</button>
+					<button
+						className={`${styles.tab} ${
+							tab == FeatureTab.customLink && styles.selectedTab
+						}`}
+						onClick={() => setTab(FeatureTab.customLink)}
+					>
+						<FontAwesomeIcon icon={faLink} className={styles.icon} />
+						<p>Custom Links</p>
+					</button>
+					<button
+						className={`${styles.tab} ${
+							tab == FeatureTab.tracking && styles.selectedTab
+						}`}
+						onClick={() => setTab(FeatureTab.tracking)}
+					>
+						<FontAwesomeIcon icon={faChartSimple} className={styles.icon} />
+						<p>Tracking</p>
+					</button>
+				</div>
+			</Fade>
 
-			{tab == FeatureTab.template ? (
-				<TemplateContent />
-			) : tab == FeatureTab.customLink ? (
-				<CustomContent />
-			) : (
-				<TrackingContent />
-			)}
+			<Fade left>
+				{tab == FeatureTab.template ? (
+					<TemplateContent />
+				) : tab == FeatureTab.customLink ? (
+					<CustomContent />
+				) : (
+					<TrackingContent />
+				)}
+			</Fade>
+
 			{/* </div> */}
 		</div>
 	);
