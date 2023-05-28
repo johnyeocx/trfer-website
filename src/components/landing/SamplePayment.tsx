@@ -48,7 +48,7 @@ function SamplePayment() {
 
 				<Margin height={5} />
 				<MyButton
-					text="Test Me!"
+					text="Pay Now!"
 					onClick={btnClicked}
 					loading={btnLoading}
 					// enabled={enabled}

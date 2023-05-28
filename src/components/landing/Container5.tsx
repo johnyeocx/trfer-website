@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import styles from "../../styles/Landing/Container5.module.scss";
-import { Input } from "antd";
-import AuthTextField from "../auth/authTextField";
 import Margin from "../general/margin";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
 import LoadingIndicator from "../general/LoadingIndicator";
-import { bpDesktopThin, bpMobile } from "@/misc/constants";
+import { bpMobile } from "@/misc/constants";
 import { useWindowSize } from "@/hooks/useWindowResize";
 
 function Container5({ submitClicked, failed, error }: any) {
