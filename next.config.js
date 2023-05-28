@@ -15,6 +15,10 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     })
+    config.module.rules.push({
+      test: /\.html$/,
+      loader: 'html-loader',
+    });
     return config
   },
 }

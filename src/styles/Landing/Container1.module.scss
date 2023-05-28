@@ -13,52 +13,89 @@
 }
 
 .container1 {
-    width: 100vw;
+    width: 100%;
     max-width: $containerMaxWidth;
     display: flex;
+    justify-content: space-between;
 
     @media (max-width: $bp-tablet) {
         flex-direction: column;
         height: fit-content;
-        max-width: 500px;
+        max-width: 600px;
     }
 }
 
   
 .left {
 
-    width: 50%;
+    width: 55%;
     @include flexCenter(column);
     align-items: flex-start;
+    padding-bottom: 20px;
+
+    @media (max-width: $bp-desktop-thin) {
+        width: 50%;
+        overflow: hidden;
+        padding-right: 10px;
+    }
 
     @media (max-width: $bp-tablet) {
         width: 100%;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0px 30px;
+        padding-bottom: 20px;
+    }
+
+    h1 {
+        font-size: $header2;
+        font-weight: bolder;
+
+        @media (max-width: $bp-desktop-thin) {
+            font-size: $header3;
+        }
+    }
+
+    p {
+        font-size: $para4Half;
+        font-weight: 500;
+        color: #444;
+
+        @media (max-width: $bp-desktop-thin) {
+            font-size: $para4Half;
+        }
+
+        @media (max-width: $bp-tablet) {
+            font-size: $para4Half;
+        }
     }
 
     .em1 {
         font-weight: bolder;
         position: relative;
+        color: rgba(45, 142, 252, 0.813);
     
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            width: 164px;
-            height: 18px;
-            background-color: rgba(0, 119, 255, 0.5);
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: -0.5rem;
+        //     left: 0;
+        //     width: 188px;
+        //     height: 18px;
+        //     background-color: rgba(0, 119, 255, 0.5);
 
-            @media (max-width: $bp-desktop-thin) {
-                width: 125px;
-            }
-        }
+        //     @media (max-width: $bp-desktop-thin) {
+        //         width: 125px;
+        //     }
+        // }
     }
 
     .em2 {
+        color: rgba(254, 69, 112, 0.936);
+        // margin-bottom: 10px;
         &::after {
             width: 138px;
-            background-color: rgba(255, 121, 153, 0.5);
+            background-color: rgba(255, 121, 148, 0.5);
 
             @media (max-width: $bp-desktop-thin) {
                 width: 100px;
@@ -83,18 +120,25 @@
 
 .right {
     @include flexCenter(row);
+    width: 45%;
     justify-content: flex-end;
-    width: 50%;
 
     @media (max-width: $bp-tablet) {
         margin-top: 50px;
         width: 100%;
+        padding: 0px 30px;
+    }   
+
+    @media (max-width: $bp-mobile) {
+        margin-top: 50px;
+        width: 100%;
+        padding: 0px;
     }   
 
     .background {
         position: relative;
         background: linear-gradient(107deg, rgba(2,0,36,1) 0%, rgb(255, 221, 221) 0%, rgb(201, 243, 255) 100%);
-        width: 450px;
+        width: 400px;
         height: 550px;
         padding-top: 15px;
         @include flexCenter(row);
@@ -124,7 +168,7 @@
 
 $inputBorderRadius: 5px;
 $inputHeight: 60px;
-$inputWidth: 80%;
+$inputWidth: 450px;
 $fontSize: calc($para4 - 1px);
 $btnWidth: 130px;
 
@@ -138,10 +182,14 @@ $btnWidth: 130px;
     height: $inputHeight;
     overflow: hidden;
     transition: 0.2s;
+    
+    @media (max-width: $bp-desktop-thin) {
+        width: 90%;
+    } 
 
     @media (max-width: $bp-tablet) {
-        width: 80%;
-        max-width: 400px;
+        width: 90%;
+        // max-width: 400px;
     }   
     
 
@@ -197,4 +245,16 @@ $btnWidth: 130px;
 
 .focusedContainer {
     box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
+
+.failedContainer {
+    border: 2px solid $errColor;
+    box-shadow: none;
+}
+
+.failedTxt {
+    font-size: $para5Half !important;
+    color: $errColor !important;
+    margin-left: $inputBorderRadius / 2;
+    margin-top: 5px;
 }

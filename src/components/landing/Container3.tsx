@@ -16,7 +16,7 @@ function Container3() {
 				<div className={`${styles.imgHalf} ${styles.imgLeft}`}>
 					<div className={styles.imgContainer}>
 						<Image
-							src={PaidOnTime}
+							src={Efficiency}
 							alt=""
 							fill
 							style={{ objectFit: "contain" }}
@@ -24,11 +24,11 @@ function Container3() {
 					</div>
 				</div>
 				<div className={`${styles.textHalf} ${styles.right}`}>
-					<p className={styles.title}>Get paid on time</p>
+					<p className={styles.title}>Prioritising efficiency</p>
 					<p className={styles.description}>
-						With trfer.me, clients will never have an easier time paying, and
-						we&apos;ve done the research: A simpler process goes a long way in
-						helping you get paid on time.
+						Tired of long email threads and tedious collection processes?
+						That&apos;s why we&apos;ve reduced payments to just the key
+						essentials, because your time is precious.
 					</p>
 				</div>
 			</div>
@@ -76,7 +76,7 @@ function Container3() {
 				<div className={`${styles.imgHalf} ${styles.imgLeft}`}>
 					<div className={styles.imgContainer}>
 						<Image
-							src={Efficiency}
+							src={PaidOnTime}
 							alt=""
 							fill
 							style={{ objectFit: "cover" }}
@@ -84,14 +84,11 @@ function Container3() {
 					</div>
 				</div>
 				<div className={`${styles.textHalf} ${styles.right}`}>
-					<p className={styles.title}>
-						Efficient payments, <br />
-						time saved
-					</p>
+					<p className={styles.title}>Amazing analytics</p>
 					<p className={styles.description}>
-						Tired of long email threads and tedious collection processes?
-						That&apos;s why we&apos;ve reduced payments to just the key
-						essentials, because your time is worth so much more.
+						Finding it difficult to determine trends in your business? With our
+						dashboards and analytics, you&apos;ll now know the peaks, troughs,
+						ins and outs of your business.
 					</p>
 				</div>
 			</div>

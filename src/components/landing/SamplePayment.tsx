@@ -18,9 +18,9 @@ function SamplePayment() {
 		<div className={styles.container}>
 			<div className={styles.details}>
 				<div className={styles.userDetailsContainer}>
-					<ProfileImage uId={47} imageDim={25} />
+					<ProfileImage uId={1} imageDim={25} />
 					<Margin width={10} />
-					<p className={styles.name}>trfer.me</p>
+					<p className={styles.name}>Trfer Creatives</p>
 				</div>
 				<Margin height={15} />
 				<div className={styles.productDetails}>

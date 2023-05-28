@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Landing.module.scss";
 import HomeTextField from "@/components/home/HomeTextField";
 import Margin from "@/components/general/margin";
@@ -19,11 +19,19 @@ import Container3 from "@/components/landing/Container3";
 import Container4 from "@/components/landing/Container4";
 import Container5 from "@/components/landing/Container5";
 import Container1 from "@/components/landing/Container1";
+import SignedUpModal from "@/components/landing/SignedUpModal";
+import { useScrollBlock } from "@/hooks/useScrollBlock";
+
+const safeDocument = typeof document !== "undefined" ? document : {};
 
 export default function Root() {
 	const [username, setUsername] = useState("");
 	const router = useRouter();
 	const dispatch = useDispatch();
+	const [success, setSuccess] = useState(false);
+	const [blockScroll, allowScroll] = useScrollBlock();
+	const [failed, setFailed] = useState(false);
+	const [errText, setErrText] = useState("");
 
 	useEffect(() => {
 		(async () => {
@@ -31,91 +39,59 @@ export default function Root() {
 		})();
 	}, []);
 
+	useEffect(() => {
+		if (success) {
+			blockScroll();
+		} else {
+			allowScroll();
+		}
+	}, [success]);
+
+	const submitClicked = async (email: string) => {
+		setFailed(false);
+		try {
+			const response = await fetch("/api/submit", {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					email: email,
+				}),
+			});
+
+			if (response.status != 200) throw "Failed";
+			setSuccess(true);
+			setTimeout(() => setSuccess(false), 10000);
+			return;
+		} catch (error) {
+			console.log("failed to submit");
+			setFailed(true);
+			setErrText;
+
+			setTimeout(() => {
+				setFailed(false);
+			}, 5000);
+		}
+	};
+
 	return (
+		// <div style={success ? { overflow: "hidden" } : {}}>
 		<>
 			<NavBar showRight={false} />
+			{success && <SignedUpModal setSuccess={setSuccess} />}
 			<div className={styles.page}>
-				<Container1 />
-
+				<Container1
+					errText={errText}
+					submitClicked={submitClicked}
+					failed={failed}
+				/>
 				<Container2 />
 				<Container3 />
 				<Container4 />
-				<Container5 />
-
-				{/* <div className={styles.container2}>
-					<div>Is this you?</div>
-				</div> */}
+				<Container5 submitClicked={submitClicked} />
 			</div>
 		</>
 	);
 }
-
-// <div className={styles.contentContainer}>
-// 					<p className={`${styles.fromThem} ${styles.textBubble}`}>
-// 						What&apos;s your <span className={styles.cancel}>bank details</span>{" "}
-// 						<span className={styles.title}>trfer.me</span>?
-// 					</p>
-// 					<Margin height={25} />
-
-// 					<div className={`${styles.fromMe} ${styles.textBubble}`}>
-// 						It&apos;s <HomeTextField value={username} onChange={setUsername} />
-// 					</div>
-// 					<Margin height={25} />
-// 					<div className={styles.btnsContainer}>
-// 						<Link
-// 							href={`/register?username=${username}`}
-// 							className={styles.buttonContainer}
-// 						>
-// 							<FontAwesomeIcon icon={faArrowUp} className={styles.claimIcon} />
-// 							<Margin width={10} />
-// 							Claim it
-// 						</Link>
-// 					</div>
-// 				</div>
-// 				<Margin height={20} />
-// 				<div className={styles.section2}>
-// 					<p className={styles.subText}>
-// 						Claim your link now and start getting paid the way you should -
-// 						efficiently.
-// 					</p>
-// 					<Margin height={20} />
-// 					<div className={styles.imageContainer}>
-// 						<Image
-// 							src={LandingImage}
-// 							alt="apple logo"
-// 							fill
-// 							style={{ objectFit: "contain" }}
-// 						/>
-// 					</div>
-// 				</div>
-// 				<Margin height={35} />
-// 				<div className={styles.section3}>
-// 					<div
-// 						className={`${styles.fromMe} ${styles.textBubble} ${styles.howTitle}`}
-// 					>
-// 						How does it work?
-// 					</div>
-// 					<Margin height={20} />
-// 					<div
-// 						className={`${styles.fromThem} ${styles.textBubble} ${styles.howText}`}
-// 					>
-// 						<p>
-// 							<span>1.</span> Fill in the amount to send
-// 						</p>
-// 						<p>
-// 							<span>2.</span> Authorise with your bank
-// 						</p>
-// 						<p>
-// 							<span>3.</span> Done!
-// 						</p>
-// 					</div>
-// 					<Margin height={20} />
-// 					<p className={styles.section3End}>Safe, Simple, Secure.</p>
-// 					<Margin height={20} />
-// 					<Link
-// 						href={`/register`}
-// 						className={`${styles.buttonContainer} ${styles.section3Btn}`}
-// 					>
-// 						Try it now
-// 					</Link>
-// 				</div>

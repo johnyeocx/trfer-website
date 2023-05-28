@@ -27,10 +27,11 @@ function Container2() {
 							<FontAwesomeIcon icon={faPersonSeatReclined} />
 						</div>
 						<div className={styles.textContainer}>
-							<p className={styles.title}>Easy for you</p>
+							<p className={styles.title}>A seamless experience</p>
 							<p className={styles.description}>
-								It&apos;s never been easier, or more professional. Just send a
-								link.
+								No more rushing to get credit cards or typing in account
+								numbers. All your client has to do is select their bank and
+								authorise!
 							</p>
 						</div>
 					</div>
@@ -40,10 +41,10 @@ function Container2() {
 							<FontAwesomeIcon icon={faPersonSeatReclined} />
 						</div>
 						<div className={styles.textContainer}>
-							<p className={styles.title}>Easy for them</p>
+							<p className={styles.title}>Safe and secure</p>
 							<p className={styles.description}>
-								Select your bank and authorise. Payments have never been
-								simpler.
+								Transactions must be approved on the client&apos;s personal
+								devices, with their mobile banking app.
 							</p>
 						</div>
 					</div>

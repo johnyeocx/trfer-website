@@ -6,7 +6,7 @@ import Margin from "../general/margin";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/pro-solid-svg-icons";
 
-function Container5() {
+function Container5({ submitClicked }: any) {
 	return (
 		<div className={styles.background}>
 			<div className={styles.container5}>

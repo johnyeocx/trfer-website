@@ -8,8 +8,8 @@
     margin-top: 100px;
 
     @media (max-width: $bp-tablet) {
-        padding: 0px 30px;
         margin-top: 50px;
+        padding: 0px;
     }
 }
 
@@ -21,7 +21,9 @@
     @media (max-width: $bp-tablet) {
         flex-direction: column;
         height: fit-content;
-        max-width: 500px;
+        // background-color: yellow;
+        padding: 0px 30px;
+        max-width: 600px;
     }
 
     @media (max-width: $bp-mobile) {
@@ -34,7 +36,7 @@
 
 $containerHeight: 600px;
 .left {
-    width: 55%;
+    width: 60%;
     padding-right: 50px;
     display: flex;
     height: calc($containerHeight - 50px);
@@ -48,17 +50,18 @@ $containerHeight: 600px;
     }
 
     .title {
-        font-size: $header5;
+        font-size: $header4;
+        font-weight: bolder;
     }
 
     .subTitle {
-        font-size: $para4;
+        font-size: $para4Half;
         font-weight: 500;
     }
 }
 
 .right {
-    width: 45%;
+    width: 40%;
     @include flexCenter(row);
     align-items: flex-start;
     
@@ -93,14 +96,14 @@ $blue: #3888ff;
 
     .textContainer {
         .title {
-            font-size: $para3Half;
+            font-size: $para2;
             font-weight: 700;
             margin-bottom: 5px;
             color: darken($blue, 5%);
         }
 
         .description {
-            font-size: $para4;
+            font-size: $para4Half;
             font-weight: 500;
         }
     }

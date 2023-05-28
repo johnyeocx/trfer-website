@@ -1,0 +1,41 @@
+@import '../config';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    @include flexCenter(row);
+}
+
+.modal {
+    margin: 0px 40px;
+    width: 600px;
+    height: 280px;
+    background-color: white;
+    // box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    position: relative;
+
+    .icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: $para3Half;
+    }
+
+    h5 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-weight: 500;
+    }
+}
