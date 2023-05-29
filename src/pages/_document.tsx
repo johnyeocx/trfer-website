@@ -1,3 +1,4 @@
+import { s3Endpoint } from "@/misc/constants";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -15,6 +16,11 @@ export default function Document() {
 					property="og:description"
 					content="An open banking payment service designed for creative agencies"
 				/>
+				<meta
+					name="og:image"
+					content={`${s3Endpoint}/user/profile_image/banner.png`}
+				/>
+
 				{/* <meta property="og:image" content="URL of the desired image" /> */}
 			</Head>
 
