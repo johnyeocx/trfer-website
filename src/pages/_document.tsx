@@ -18,7 +18,7 @@ export default function Document() {
 				/>
 				<meta
 					name="og:image"
-					content={`${s3Endpoint}/user/profile_image/banner.png`}
+					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
 				/>
 
 				{/* <meta property="og:image" content="URL of the desired image" /> */}
