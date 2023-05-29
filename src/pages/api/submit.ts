@@ -25,11 +25,12 @@ export default async function handler(req: any, res: any) {
 	const body = req.body;
 	// console.log("Sending email");
 
+	let privKey = process.env.GOOGLE_PRIVATE_KEY;
 	try {
 		const auth = new google.auth.GoogleAuth({
 			credentials: {
 				client_email: GOOGLE_CLIENT_EMAIL,
-				private_key: GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+				private_key: privKey?.replace(/\\n/g, "\n"),
 			},
 			scopes: [
 				"https://www.googleapis.com/auth/drive",

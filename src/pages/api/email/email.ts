@@ -1,7 +1,11 @@
 const nodemailer = require("nodemailer");
 const fs = require("fs");
-const GMAIL_USERNAME = "team@usual.ltd";
-const GMAIL_PASSWORD = "fbpizupqwbshvgcb";
+
+// const GMAIL_USERNAME = "team@usual.ltd";
+// const GMAIL_PASSWORD = "fbpizupqwbshvgcb";
+const GMAIL_USERNAME = "team@trfer.me";
+const GMAIL_PASSWORD = "rituicweasahorly";
+
 var handlebars = require("handlebars");
 
 import SignupResponseHtml from "./signup_response.html";
@@ -20,11 +24,13 @@ var readHTMLFile = function (
 };
 
 export const sendEmail = async (email: string) => {
+	let fromEmail = process.env.GMAIL_USERNAME;
+	let password = process.env.GMAIL_PASSWORD;
 	const transporter = nodemailer.createTransport({
 		service: "gmail",
 		auth: {
-			user: GMAIL_USERNAME,
-			pass: GMAIL_PASSWORD,
+			user: fromEmail,
+			pass: password,
 		},
 	});
 
@@ -35,13 +41,12 @@ export const sendEmail = async (email: string) => {
 	let htmlToSend = template(replacements);
 
 	const mail_configs = {
-		from: "John from trfer.me <" + GMAIL_USERNAME + ">",
+		from: "John from trfer.me <" + fromEmail + ">",
 		to: email,
 		subject: "Access to beta version of trfer.me",
 		html: htmlToSend,
 	};
 
-	console.log("Sending email");
 	await transporter.sendMail(mail_configs);
-	console.log("Sent!");
+	console.log("Sent email!");
 };
