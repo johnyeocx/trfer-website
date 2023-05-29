@@ -20,6 +20,20 @@ export default function Document() {
 					name="og:image"
 					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
 				/>
+				<meta
+					name="linkedin:image"
+					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
+				/>
+				<meta
+					name="image"
+					property="og:image"
+					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
+				/>
+				<meta
+					name="image"
+					property="linkedin:image"
+					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
+				/>
 
 				{/* <meta property="og:image" content="URL of the desired image" /> */}
 			</Head>
