@@ -9,6 +9,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { firebaseConfig } from "@/misc/firebase_config";
 
+// import "bootstrap/dist/css/bootstrap.css";
+import { Head } from "next/document";
+
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 

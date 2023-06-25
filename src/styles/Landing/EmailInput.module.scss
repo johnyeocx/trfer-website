@@ -1,0 +1,108 @@
+@import '../config';
+
+
+$inputBorderRadius: 5px;
+$inputHeight: 70px;
+$inputWidth: 480px;
+$fontSize: calc($para4 - 1px);
+$btnWidth: 130px;
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    width: $inputWidth;
+    border-radius: $inputBorderRadius;
+    position: relative;
+    height: $inputHeight;
+    overflow: hidden;
+    transition: 0.2s;
+    border: 2.5px solid $btnColor;
+    margin-top: 10px;
+    
+    @media (max-width: $bp-desktop-thin1) {
+        width: 400px;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: 350px;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        padding-right: 50px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        padding-right: 0px;
+    }
+    
+
+    input {
+        font-family: $primary-font;
+        width: 100%;
+        height: $inputHeight;
+        font-size: $fontSize;
+        margin-right: 5px;
+        border: none;
+        border-radius: 10px;
+        transition: 0.2s;
+        background-color: transparent;
+        padding: 0px 20px;
+
+        &::placeholder {
+            color: #444;
+        }
+    }
+
+    .sendBtn {
+        @include flexCenter(row);
+        align-items: center;
+        height: calc($inputHeight - 3px);
+        width: $btnWidth;
+        color: white;
+        font-size: $fontSize;
+        font-weight: bold;
+        transition: 0.2s;
+        border-radius: 0px;
+        position: absolute;
+        right: 0px;
+        background-color: $btnColor;
+
+        &:hover {
+            background-color: darken($primaryColor, 10%);
+        }
+
+        .icon {
+            margin-top: 1.5px;
+            margin-left: 10px;
+        }
+    }
+}
+
+.focusedContainer {
+    box-shadow: rgba(175, 220, 255, 0.5) 0px 0px 0px 1px inset, rgba(168, 201, 228, 0.5) 0px 0px 0px 1px;
+}
+
+.failedContainer {
+    border: 2px solid $errColor;
+    box-shadow: none;
+}
+
+.darkContainer {
+    input {
+        &::placeholder {
+            color: #ccc;
+        }
+
+        color: white;
+    }
+}
+
+.failedTxt {
+    font-size: $para5Half !important;
+    color: $errColor !important;
+    // margin-left: $inputBorderRadius / 2;
+    margin-top: 5px;
+    border: none !important;
+    padding-left: 0px !important;
+}

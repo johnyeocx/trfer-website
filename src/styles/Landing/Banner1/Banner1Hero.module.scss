@@ -1,0 +1,207 @@
+@import '../../config';
+
+.mainContainer {
+    position: relative;
+}
+
+$width1: 300px;
+$height1: 350px;
+.image1 {
+    width: 300px;
+    height: 350px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    @media (max-width: $bp-desktop-thin1) {
+        width: $width1 * 0.9;
+        height: $height1 * 0.9;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: $width1 * 0.8;
+        height: $height1 * 0.85;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: $width1;
+        height: $height1;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: $width1 * 0.75;
+        height: $height1 * 0.8;
+    }
+}
+
+.img1Container {
+    position: relative;
+    width: 100%;
+    height: 55%;
+}   
+
+.infoContainer {
+    padding: 15px 20px;
+}
+
+.title {
+    font-size: $para4Half;
+
+    @media (max-width: $bp-desktop-thin2) {
+        font-size: $para4;
+    }
+
+    @media (max-width: $bp-tablet) {
+        font-size: $para4Half;
+    }
+    
+    @media (max-width: $bp-mobile) {
+        font-size: $para5Half;
+    }
+}
+
+.infoRow {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    font-size: $para5Half;
+    
+    @media (max-width: $bp-desktop-thin2) {
+        font-size: $para5;
+    }
+
+    @media (max-width: $bp-tablet) {
+        font-size: $para5Half;
+    }
+
+    @media (max-width: $bp-mobile) {
+        font-size: $para5;
+    }
+
+    .icon {
+        font-size: inherit;
+        margin-right: 10px;
+        // background-color: blue;
+        width: 20px;
+    }
+
+    .text {
+        font-size: inherit;
+        font-weight: 500;
+    }
+}
+
+
+$width2: 432px;
+$height2: 547px;
+.image2 {
+    position: absolute;
+    right: -30px;
+    top: 20px;
+    width: calc($width2 * 0.8);
+    height: calc($height2 * 0.8);
+
+    @media (max-width: $bp-desktop-thin1) {
+        width: calc($width2 * 0.7);
+        height: calc($height2 * 0.7);
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: calc($width2 * 0.6);
+        height: calc($height2 * 0.6);
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: $width2 * 0.75;
+        height: $height2 * 0.75;
+        right: -15px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: $width2 * 0.55;
+        height: $height2 * 0.55;
+        right: -25px;
+        top: 80px;
+    }
+}
+
+$width3: 250px;
+$height3: 200px;
+.image3 {
+    margin-top: 30px;
+    margin-left: 40px;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+
+    width: $width3 * 1;
+    height: $height3 * 1;
+
+    @media (max-width: $bp-desktop-thin1) {
+        width: $width3 * 0.9;
+        height: $height3 * 0.9;
+        margin-top: 20px;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: $width3 * 0.8;
+        height: $height3 * 0.8;
+        margin-top: 15px;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: $width3;
+        height: $height3;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: $width3 * 0.8;
+        height: $height3 * 0.9;
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+
+    .text1 {
+        margin-top: 15px;
+
+        @media (max-width: $bp-desktop-thin1) {
+            margin-top: 10px;
+        }
+    }
+
+    .text2 {
+        margin-top: 5px;
+        font-weight: 500;
+        font-size: $para5Half;
+    }
+}
+
+.joinBtn {
+    background-color: $btnColor;
+    color: white;
+    @include flexCenter(row);
+    align-items: center;
+    width: 70%;
+    padding: 8px 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-size: $para5Half;
+
+    @media (max-width: $bp-desktop-thin1) {
+        font-size: $para5;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: 80%;
+    }
+    
+    p {
+        font-size: inherit;
+    }
+
+    .icon {
+        font-size: inherit;
+        margin-left: 10px;
+    }
+}

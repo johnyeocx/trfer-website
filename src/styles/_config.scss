@@ -8,19 +8,10 @@ $primary-font: "CircularStd";
 // $breakpoint-thin: 380px;
 
 $bp-desktop: 1366px;
-$bp-desktop-thin: 1000px;
-$bp-tablet: 800px;
-$bp-mobile: 600px;
-
-
-
-
-// 1920×1080
-// 1366×768
-// 1536×864
-// 1280×720
-// 1440×900
-// 1600×900
+$bp-desktop-thin1: 1200px;
+$bp-desktop-thin2: 1000px;
+$bp-tablet: 900px;
+$bp-mobile: 580px;
 
 // FONT SIZES
 $header1: 2.5rem;
@@ -40,11 +31,16 @@ $para5Half: 0.8rem;
 $para5: 0.7rem;
 
 
-
-$navHeight: 70px;
+// PADDING
+$primaryColor: darken(rgb(0, 128, 255), 3%);
+$btnColor: rgb(16, 100, 255);
+$textSecondary: #333;
+$navHeight: 80px;
 $tabHeight: 50px;
 $placeholderColor: #888;
 $horizontalPadding: 40px;
+$horizontalPaddingMobile: 30px;
+$landingMaxWidth: 1300px;
 
 
 // COLORS

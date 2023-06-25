@@ -1,0 +1,101 @@
+@import '../config';
+
+.background {
+    // padding: 0px $horizontalPadding;
+    @include flexCenter(row);
+    width: 100vw;
+    
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+    }
+}
+
+.left {
+    position: relative;
+    width: 50%;
+    height: 800px;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+
+.right {
+    width: 50%;
+    background-color: #050f27;
+    color: white;
+    padding: 0px 100px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: fit-content;
+    align-items: center;
+
+    @media (max-width: $bp-desktop-thin1) {
+        padding: 0px 50px;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        height: fit-content;
+        padding: 50px $horizontalPadding;
+    }
+
+    @media (max-width: $bp-mobile) {
+        padding: 50px $horizontalPaddingMobile;
+    }
+}
+
+.contentContainer {
+    @media (max-width: $bp-tablet) {
+        max-width: 500px;
+    }
+
+    h2 {
+        font-size: $header4;
+        margin-bottom: 20px;
+        color: lighten($primaryColor, 10%);
+
+        @media (max-width: $bp-desktop-thin2) {
+            font-size: $header5;
+        }
+
+        @media (max-width: $bp-tablet) {
+            font-size: $para1;
+        }
+    }
+
+    .msg {
+        font-weight: 500;
+        font-size: $para4;
+        line-height: 1.5;
+        color: #eee;
+        padding-right: 50px;
+
+        @media (max-width: $bp-tablet) {
+            padding-right: 20px;
+        }
+
+        @media (max-width: $bp-mobile) {
+            padding-right: 0px;
+            font-size: $para5Half;
+        }
+    }
+
+    span {
+        font-weight: 700;
+        font-size: $para4Half;
+
+        @media (max-width: $bp-mobile) {
+            font-size: $para4;
+        }
+    }
+}
+
+.question {
+    color: #aaa;
+    font-weight: 500;
+}

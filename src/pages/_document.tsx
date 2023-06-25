@@ -6,9 +6,20 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<meta name="theme-color" content="#FFF" />
-				<title>trfer.me</title>
-				<link rel="shortcut icon" href="/logo.png" />
+				<title>byteclass</title>
+				<link rel="shortcut icon" href="/favicon.png" />
+
 				<meta
+					name="description"
+					content="Upgrade your skills by joining industry experts in short and concise
+					live, online classes covering topics like design, marketing, tech and
+					entrepreneurship."
+				/>
+				<link rel="manifest" href="/manifest.json" />
+
+				<meta name="theme-color" content="#FFF" />
+
+				{/* <meta
 					property="og:title"
 					content="Reduce your transaction fees with trfer.me"
 				/>
@@ -33,9 +44,7 @@ export default function Document() {
 					name="image"
 					property="linkedin:image"
 					content={`https://usual.s3.eu-west-2.amazonaws.com/user/profile_image/og_image.png`}
-				/>
-
-				{/* <meta property="og:image" content="URL of the desired image" /> */}
+				/> */}
 			</Head>
 
 			<body>

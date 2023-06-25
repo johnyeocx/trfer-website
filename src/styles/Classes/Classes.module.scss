@@ -1,0 +1,65 @@
+@import '../config';
+
+.mainContainer {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contentContainer {
+    max-width: 600px;
+    @include flexCenter(column);
+
+    p {
+        text-align: center;
+        font-size: $para4Half;
+        color: $textSecondary;
+        font-weight: 500;
+    }
+}
+
+.header {
+    font-size: $header3;
+}
+
+.navProgress {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #444;
+
+    .icon {
+        font-size: $para5Half;
+    }
+
+    .text {
+        font-weight: 600;
+    }
+}
+
+.heading {
+    font-size: $para4;
+    font-weight: bold;
+    
+}
+
+.catContainer {
+
+}
+
+.catTitle {
+    font-size: $para3;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.coursesContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    margin-bottom: 30px;
+}

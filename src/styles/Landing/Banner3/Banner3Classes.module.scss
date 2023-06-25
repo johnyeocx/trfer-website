@@ -1,0 +1,35 @@
+@import '../../config';
+
+.container {
+    width: fit-content;
+    
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: end;
+
+    @media (max-width: $bp-desktop-thin1) {
+        gap: 1.5rem;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        gap: 1rem;
+    }
+
+    @media (max-width: $bp-tablet) {
+        gap: 1.5rem;
+    }
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

@@ -1,0 +1,16 @@
+@import '../config';
+
+.navButton {
+    font-size: $para4;
+    // width: 100px;
+    margin: 0px 30px;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        transform: translateY(-1px);
+        color: $primaryColor;
+    }
+}

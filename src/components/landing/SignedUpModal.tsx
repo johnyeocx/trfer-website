@@ -10,11 +10,11 @@ function SignedUpModal({ setSuccess }: any) {
 				<button onClick={() => setSuccess(false)}>
 					<FontAwesomeIcon icon={faXmark} className={styles.icon} />
 				</button>
-				<h5>Thank you for your interest in trfer.me!</h5>
+				<h5>Thank you for your interest in byteclass!</h5>
 
 				<p>
-					We are working hard to bring this product to you and will contact you
-					soon about your access to the beta version of the app.
+					We are working hard to bring this platform to you and will keep you
+					updated about your access as we near our launch.
 				</p>
 			</div>
 		</div>

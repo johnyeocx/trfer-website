@@ -1,0 +1,158 @@
+@import '../config';
+
+.background {
+    padding: 0px $horizontalPadding;
+    @include flexCenter(row);
+    padding-bottom: 150px;
+
+    @media (max-width: $bp-tablet) {
+        padding-bottom: 50px;
+    }
+}
+
+.mainContainer {
+    width: 100vw;
+    max-width: $landingMaxWidth;
+    @include flexCenter(row);
+
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+    }
+}
+
+.left {
+    width: 50%;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+.imgContainer {
+    position: relative;
+    width: 90%;
+    height: 500px;
+
+    @media (max-width: $bp-desktop-thin1) {
+        width: 100%;
+        height: 550px;
+    }
+
+    @media (max-width: $bp-tablet) {
+        height: 480px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        height: 70vw;
+    }
+
+    .img {
+        position: absolute;
+    }
+
+    
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        padding-left: 0px;
+    }
+}
+
+.subHeading {
+    font-size: $header4;
+    margin-bottom: 20px;
+
+    @media (max-width: $bp-desktop-thin1) {
+        font-size: $header5;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        font-size: $para1;
+    }
+
+    // @media (max-width: $bp-mobile) {
+    //     font-size: $para2;
+    // }
+}
+
+
+$iconContainerDim: 70px;
+.pointContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin: 20px 0px;
+    border-radius: 20px;
+
+    .iconContainer {
+        @include flexCenter(row);
+        width: $iconContainerDim;
+        height: $iconContainerDim;
+        border-radius: calc($iconContainerDim / 2);
+        background-color: $primaryColor;
+        color: white;
+
+        @media (max-width: $bp-desktop-thin2) {
+            width: $iconContainerDim * 0.9;
+            height: $iconContainerDim * 0.9;
+            border-radius: calc($iconContainerDim * 0.45);
+        }
+
+        @media (max-width: $bp-mobile) {
+            width: $iconContainerDim * 0.8;
+            height: $iconContainerDim * 0.8;
+            border-radius: calc($iconContainerDim * 0.4);
+        }
+    }
+
+    .infoContainer {
+        width: calc(100% - $iconContainerDim);
+        padding-left: 30px;
+        
+        @media (max-width: $bp-mobile) {
+            padding-left: 20px;
+        }
+    }
+}
+
+.infoContainer .title {
+    font-size: $para3;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    @media (max-width: $bp-desktop-thin2) {
+        font-size: $para4Half;
+    }
+
+    @media (max-width: $bp-tablet) {
+        font-size: $para3;
+    }
+
+    @media (max-width: $bp-mobile) {
+        font-size: calc($para4Half - 2px);
+        margin-bottom: 6px;
+    }
+}
+
+.infoContainer .text {
+    font-size: $para4;
+    font-weight: 500;
+    color: #444;
+
+    @media (max-width: $bp-desktop-thin2) {
+        font-size: $para5Half;
+    }
+}

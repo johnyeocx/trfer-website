@@ -1,0 +1,97 @@
+@import '../config';
+
+
+$width: 270px;
+$height: 320px;
+.courseCard {
+    width: $width;
+    height: $height;
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-bottom: 30px;
+    transition: 0.2s;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    @media (max-width: $bp-desktop-thin1) {
+        width: $width * 0.92;
+        height: $height * 0.92;
+    }
+
+    @media (max-width: $bp-desktop-thin2) {
+        width: $width * 0.82;
+        height: $height * 0.95;
+    }
+
+    @media (max-width: $bp-tablet) {
+        width: 100%; 
+    }
+}
+
+.cardImageContainer {
+    position: relative;
+    width: 100%;
+    height: 150px;
+
+    @media (max-width: $bp-desktop-thin1) {
+        height: 140px;
+    }
+    @media (max-width: $bp-desktop-thin1) {
+        height: 120px;
+    }
+
+    @media (max-width: $bp-mobile) {
+        height: 150px;
+    }
+}
+
+.infoContainer {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media (max-width: $bp-mobile) {
+        padding: 10px 14px;
+    }
+}
+
+.courseTitle {
+    font-size: $para4;
+    text-align: start;
+}
+
+
+$infoTextColor: #222;
+.creatorRow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    p {
+        font-size: $para5;
+        font-weight: 500;
+        color: $infoTextColor;
+    }
+}
+
+.infoRow {
+    display: flex;
+    align-items: center;
+    
+    .icon {
+        color: $infoTextColor;
+        width: 26px;
+        font-size: $para5;
+    }
+
+    p {
+        color: $infoTextColor;
+        font-size: $para5;
+        font-weight: 500;
+    }
+}

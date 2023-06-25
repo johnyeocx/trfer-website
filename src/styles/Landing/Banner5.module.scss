@@ -1,0 +1,128 @@
+@import '../config';
+
+.background {
+    width: 100vw;
+    height: 500px;
+    background-color: #111;
+
+    padding: 50px $horizontalPadding;
+    @include flexCenter(row);
+    align-items: flex-start;
+}
+
+.mainContainer {
+    width: 100vw;
+    max-width: $landingMaxWidth + 500px;
+    @include flexCenter(column);
+    // background-color: yellow;
+}
+
+.container1 {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media (max-width: $bp-tablet) {
+        flex-direction: column;
+    }
+    
+    h2 {
+        width: 50%;
+        font-size: $para1;
+        font-weight: 600;
+
+        @media (max-width: $bp-tablet) {
+            width: 100%;
+            text-align: center;
+            font-size: $para3;
+        }
+    }
+
+
+
+    .actionBtn {
+        padding: 20px;
+        background-color: $primaryColor;
+        color: white;
+        height: 80px;
+        font-size: $para4Half;
+
+        border-radius: 10px;
+        transition: 0.2s;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 7px 29px 0px;
+        }
+    }
+
+    .joinBtn {
+        margin-right: 30px;
+        background-color: white;
+        color: black
+    }
+}
+
+.inputContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media (max-width: $bp-tablet) {
+        width: 100%;
+        text-align: center;
+        font-size: $para3;
+        margin-top: 20px;
+        max-width: 500px;
+    }
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(70, 70, 70);
+    margin: 50px;
+}
+
+.container2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+
+    @media (max-width: $bp-tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.socialsRow {
+    display: flex;
+}
+
+.socialsBtn {
+    color: white;
+    margin-right: 30px;
+}
+
+.col2 {
+    color: white;
+
+    .text {
+        font-weight: 500;
+        color: #ccc;
+    }
+
+    .emailLink {
+        font-weight: 500;
+        color: #ccc;
+        font-size: $para4;
+        color: white;
+    }
+}
+
+.invitation {
+    color: white;
+    font-size: $para4;
+}

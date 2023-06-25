@@ -1,57 +1,55 @@
-@import "../config";
+@import '../config';
 
 .navContainer {
     width: 100vw;
     height: $navHeight;
-    @include flexCenter(row);
-    justify-content: space-between;
+    display: flex;
     align-items: center;
-    padding-left: $horizontalPadding;
-    padding-right: $horizontalPadding;
-    z-index: 10;
+    padding: 0px $horizontalPadding;
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
 
-    @media (max-width: $bp-tablet) {
-        padding-left: 30px;
-        
+    @media (max-width: $bp-mobile) {
+        padding: 0px $horizontalPaddingMobile;
     }
 }
 
+.left {
+    width: 30%;
+    display: flex;
+    align-items: center;
 
-.logoContainer {
-    font-size: $para2;
-    font-weight: 800;
-}
-
-.menuIcon {
-    font-size: 20px;
+    .subText {
+        margin: 0px;
+    }
 }
 
 .right {
-    @include flexCenter(row);
+    width: 80%;
+    display: flex;
     justify-content: flex-end;
 }
 
-.authBtn {
-    font-size: $para4;
-    border-radius: 15px;
-    padding: 3px 10px;
-    width: 100px;
-    height: 40px;
-}
-
-$blue: #248bf5;
-.signUpBtn {
-    // color: $blue;
-    // border: 1px solid $blue;
-    // box-shadow: #86c3ff6b 0px 0px 10px;
-    background-color: $blue;
+.applyBtn {
+    
     color: white;
-    box-shadow: #3a9dfff0 0px 1px 4px;
+    padding: 12px 20px;
+    height: 50px;
+    @include flexCenter(row);
+    font-size: $para4;
+    border-radius: 5px;
+    margin-left: 50px;
+    transition: 0.2s;
+    font-weight: bold;
+    background-color: $btnColor;
 
-}
+    &:hover {
+        background-color: darken($primaryColor, 10%);
+    }
 
-.loginBtn {
-    background-color: #FAFAFA;
-    color: black;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    @media (max-width: $bp-mobile) {
+        padding: 10px 10px;
+        font-size: $para5Half;
+    }
 }
